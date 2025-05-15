@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Plateau: Enumclaw Edition</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #1f1f1f;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    header p {
+      margin: 0.5rem 0 0;
+      font-size: 1.2rem;
+    }
+    nav {
+      background: #eaeaea;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #1f1f1f;
+      font-weight: bold;
+    }
+    .section {
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .section p,
+    .section ul {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .selector {
+      margin: 1rem auto;
+      text-align: center;
+    }
+    .selector label {
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+    .testimonial {
+      background: #fff;
+      border-left: 4px solid #1f1f1f;
+      padding: 1rem;
+      margin: 1rem 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .testimonial cite {
+      display: block;
+      margin-top: 0.5rem;
+      font-style: italic;
+      color: #666;
+    }
+    footer {
+      background: #1f1f1f;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    footer div.logo {
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+    }
+    footer div.social-links a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>THE PLATEAU</h1>
+    <p>Locally rooted. Plateau proud.</p>
+  </header>
+
+  <div class="selector">
+    <label for="edition-select">Choose your edition:</label>
+    <select id="edition-select" onchange="location = this.value;">
+      <option value="https://www.bestversionmedia.com/magazines/enumclawliving" selected>Enumclaw Edition</option>
+      <option value="https://www.bestversionmedia.com/magazines/bonneylakeliving">Bonney Lake Edition</option>
+    </select>
+  </div>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#magazines">Magazines</a>
+    <a href="#advertise">Advertise</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="section" id="about">
+    <h2>About Us</h2>
+    <p>
+      The Plateau Publishing Co. is your community-rooted source for connecting the people and stories of Enumclaw, Bonney Lake, and the greater Plateau. We’re proudly independent, not franchised — a truly local publication sharing stories that matter to our neighbors.
+    </p>
+  </section>
+
+  <section class="section" id="magazines">
+    <h2>Our Magazines</h2>
+    <p>
+      <strong>The Plateau: Enumclaw Edition</strong> and <strong>The Plateau: Bonney Lake Edition</strong> are monthly magazines created for everyone who calls the Plateau home. From community stories and local business spotlights to events, art, and outdoor life — we capture what makes Enumclaw shine.
+    </p>
+  </section>
+
+  <section class="section" id="advertise">
+    <h2>Marketing & Sponsorship</h2>
+    <p>
+      Reach your neighbors through a blend of targeted print + digital marketing. The Plateau Publishing Co. offers opportunities for authentic brand connection, content sponsorship, and featured local storytelling — tailored for the small-town feel Enumclaw loves.
+    </p>
+    <p><strong>Why advertise with us?</strong><br />
+      - We’re community-based and locally operated<br />
+      - Trusted voices and stories from Enumclaw residents<br />
+      - Print + digital exposure for your business<br />
+      - Designed for long-term brand loyalty
+    </p>
+  </section>
+
+  <section class="section" id="publishers">
+    <h2>Meet the Publishers</h2>
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; align-items: center;">
+      <div style="text-align: center; max-width: 200px;">
+        <img src="https://www.facebook.com/photo.php?fbid=560522617034043&set=pb.100092289272048.-2207520000&type=3" alt="Katie Morris" style="width: 100%; border-radius: 50%;" />
+        <p><strong>Katie Morris</strong><br />Publisher</p>
+      </div>
+      <div style="text-align: center; max-width: 200px;">
+        <img src="https://www.facebook.com/photo/?fbid=560522613700710&set=pb.100092289272048.-2207520000" alt="Casey Morris" style="width: 100%; border-radius: 50%;" />
+        <p><strong>Casey Morris</strong><br />Publisher</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="testimonials">
+    <h2>Community Testimonials</h2>
+    <div class="testimonial">
+      <p>“The Plateau: Enumclaw Edition has helped our business connect with the community in a meaningful way. We’ve seen real results!”</p>
+      <cite>– Lisa M., Small Business Owner</cite>
+    </div>
+    <div class="testimonial">
+      <p>“I love reading stories about people I actually know. It feels like our town is finally being seen.”</p>
+      <cite>– Tom R., Enumclaw Resident</cite>
+    </div>
+    <div class="testimonial">
+      <p>“Our sponsorship with The Plateau has brought us more local visibility than any social ad campaign we’ve tried.”</p>
+      <cite>– Sara T., Marketing Director</cite>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>
+      Interested in sponsorships or contributing a story idea? We’d love to hear from you.<br />
+      <strong>Email:</strong> <a href="mailto:caseymorris@bestversionmedia.com">caseymorris@bestversionmedia.com</a><br />
+      <strong>Phone:</strong> <a href="tel:12064061869">(206) 406-1869</a>
+    </p>
+  </section>
+
+  <footer>
+    <div class="logo">The Plateau Publishing Co.</div>
+    <p>&copy; 2025 The Plateau Publishing Co. | Enumclaw, WA</p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/EnumclawLiving" target="_blank">Facebook (Enumclaw)</a>
+      <a href="https://www.instagram.com/enumclawliving" target="_blank">Instagram (Enumclaw)</a>
+      <a href="https://www.facebook.com/BonneyLakeLiving" target="_blank">Facebook (Bonney Lake)</a>
+      <a href="https://www.instagram.com/bonneylakeliving" target="_blank">Instagram (Bonney Lake)</a>
+    </div>
+  </footer>
+</body>
+</html>
