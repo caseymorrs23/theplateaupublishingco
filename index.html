@@ -10,7 +10,7 @@
   <meta property="og:description" content="Locally rooted. Plateau proud." />
   <meta property="og:url" content="https://theplateaupublishingco.com/" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="/assets/img/og-cover-clean-no-text.jpg" />
+  <meta property="og:image" content="/assets/img/hero-mtrainier-clean.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -36,16 +36,19 @@
     }
 
     header{
-      background: url('/assets/img/og-cover-clean-no-text.jpg') center/cover no-repeat; color:#fff; padding:5rem 1rem 3rem; text-align:center;
+      color:#fff; padding:5rem 1rem 3rem; text-align:center;
+      background: url('/assets/img/hero-mtrainier-clean.jpg') center/cover no-repeat;
+      background-image: image-set(
+        url('/assets/img/hero-mtrainier-clean.webp') type('image/webp') 1x,
+        url('/assets/img/hero-mtrainier-clean.jpg') type('image/jpeg') 1x
+      );
     }
+    header img.logo { max-width:180px; margin-bottom:1rem; }
     header h1{margin:0; font-size:clamp(2.2rem,3.5vw,3.25rem); letter-spacing:.5px; font-family:'Playfair Display',serif; text-shadow:0 2px 4px rgba(0,0,0,.6)}
     header p{margin:.75rem auto 0; font-size:1.1rem; max-width:42rem; opacity:.95; text-shadow:0 1px 3px rgba(0,0,0,.6)}
 
     .cta-row{margin:1.25rem auto 0; display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap}
-    .btn{
-      background: var(--rust); color:#fff; border: none; padding:.75rem 1rem; border-radius:.75rem; text-decoration:none; font-weight:700;
-      box-shadow: 0 2px 0 rgba(0,0,0,.08);
-    }
+    .btn{ background: var(--rust); color:#fff; border: none; padding:.75rem 1rem; border-radius:.75rem; text-decoration:none; font-weight:700; box-shadow: 0 2px 0 rgba(0,0,0,.08); }
     .btn:hover{background: var(--gold); color: var(--ink)}
     .btn.alt{background: var(--rust); color:#fff; border:2px solid var(--rust)}
     .btn.alt:hover{background: var(--gold); border-color: var(--gold); color: var(--ink)}
@@ -54,13 +57,8 @@
     .selector label{font-weight:700; margin-right:.5rem}
     select{padding:.5rem .75rem; border-radius:.5rem; border:1px solid #dbcbb7; background:#fff}
 
-    nav{
-      position: sticky; top:0; z-index:50; background:var(--nav); border-bottom:1px solid #dbcbb7;
-      display:flex; justify-content:center; gap:1rem; padding:.75rem 1rem; flex-wrap:wrap;
-    }
-    nav a{
-      text-decoration:none; color:var(--ink); font-weight:700; padding:.4rem .7rem; border-radius:.5rem;
-    }
+    nav{ position: sticky; top:0; z-index:50; background:var(--nav); border-bottom:1px solid #dbcbb7; display:flex; justify-content:center; gap:1rem; padding:.75rem 1rem; flex-wrap:wrap; }
+    nav a{ text-decoration:none; color:var(--ink); font-weight:700; padding:.4rem .7rem; border-radius:.5rem; }
     nav a:hover{background: var(--gold); color: var(--ink)}
     nav a.active{background: var(--brand); color:#fff}
 
@@ -81,7 +79,7 @@
     .muted{color:var(--muted)}
 
     footer{background: var(--brand); color:#fff; text-align:center; padding:2rem 1rem; margin-top:2rem}
-    footer .logo{margin-bottom:.5rem; font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700}
+    footer img.logo{max-width:140px; margin-bottom:.5rem}
     footer a{color:#fff; text-decoration:none}
     .social{display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap; margin-top:.5rem}
 
@@ -91,6 +89,10 @@
 </head>
 <body>
   <header id="top">
+    <picture>
+      <source srcset="/assets/img/logo.webp" type="image/webp">
+      <img src="/assets/img/logo.png" alt="The Plateau Publishing Co. logo" class="logo" />
+    </picture>
     <h1>THE PLATEAU PUBLISHING CO.</h1>
     <p>Locally rooted. Plateau proud.</p>
     <div class="cta-row">
@@ -159,7 +161,7 @@
     <h2 id="pub-title">Meet the Publishers</h2>
     <div class="people">
       <div class="person">
-        <img src="katie.jpeg" alt="Portrait of Publisher Katie Morris" loading="lazy" decoding="async" />
+        <img src="/assets/img/katie.jpeg" alt="Portrait of Publisher Katie Morris" loading="lazy" decoding="async" />
         <p><strong>Katie Morris</strong><br><span class="muted">Publisher</span></p>
       </div>
       <div class="person">
@@ -216,12 +218,14 @@
 
       <button class="btn" type="submit">Send Message</button>
     </form>
-
     <p class="muted" style="margin-top:.75rem">Prefer email? Write us directly at <a href="mailto:caseymorris@bestversionmedia.com">caseymorris@bestversionmedia.com</a>.</p>
   </section>
 
   <footer>
-    <div class="logo">The Plateau Publishing Co.</div>
+    <picture>
+      <source srcset="/assets/img/logo.webp" type="image/webp">
+      <img src="/assets/img/logo.png" alt="The Plateau Publishing Co. logo" class="logo" />
+    </picture>
     <p>© 2025 The Plateau Publishing Co. | Enumclaw, WA</p>
     <div class="social" aria-label="Social links">
       <a href="https://www.facebook.com/EnumclawLiving" target="_blank" rel="noopener" aria-label="Facebook - Enumclaw Living">Facebook (Enumclaw)</a>
