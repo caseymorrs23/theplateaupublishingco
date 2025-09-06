@@ -1,110 +1,141 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Plateau Publishing Co. | Lead Generation (PPC, Search) + Print Branding</title>
-<meta name="description" content="Lead generation first: PPC, Google & Bing Search, Meta Lead Ads, Display retargeting, landing pages, and SEO — paired with proven print branding for long-term trust.">
-<link rel="stylesheet" href="assets/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <style>/* playfair headings */ h1,h2{font-family:'Playfair Display',serif}</style>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Digital Marketing | Plateau Publishing Co.</title>
+  <meta name="description" content="Digital Bundles for consistent online visibility, Online Presence for listings & reviews, plus a Lead Gen Starter add-on for measurable ROI." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/digital/assets/styles.css" />
+
+<!-- GA4/Tag Manager hooks (set your ID below) -->
+<script>
+  // Replace with your GA4 Measurement ID, e.g., 'G-XXXXXXX'
+  const GA4_ID = 'G-REPLACE_ME';
+  (function initGA(){
+    if (!GA4_ID || GA4_ID === 'G-REPLACE_ME') return; // don't load until you set it
+    var s1 = document.createElement('script');
+    s1.async = true; s1.src = 'https://www.googletagmanager.com/gtag/js?id='+GA4_ID;
+    document.head.appendChild(s1);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA4_ID);
+  })();
+
+  // Generic event dispatcher: works with GA4 (gtag) or GTM (dataLayer)
+  function trackEvent(action, params){
+    params = params || {};
+    try{
+      if (window.gtag) gtag('event', action, params);
+      if (window.dataLayer) dataLayer.push(Object.assign({event: action}, params));
+    }catch(e){}
+  }
+
+  // Click bindings for buttons/links with data-ga-action
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('[data-ga-action]').forEach(function(el){
+      el.addEventListener('click', function(){
+        trackEvent(el.getAttribute('data-ga-action'), {
+          label: el.getAttribute('data-ga-label') || '',
+          location: window.location.pathname
+        });
+      });
+    });
+  });
+</script>
+
 </head>
 <body>
+  
+<nav id="site-nav" aria-label="Primary">
+  <a href="/#about">About</a>
+  <a href="/#magazines">Magazines</a>
+  <a href="/#advertise">Advertise</a>
+  <a href="/digital/bundles.html">Digital Bundles</a>
+  <span class="has-dropdown">
+    <a href="/services/digital-campaigns.html">Digital Campaigns ▾</a>
+    <ul class="dropdown">
+      <li><a href="/digital/lead-gen.html">Lead Gen Starter (PPC/Search)</a></li>
+      <li><a href="/services/digital-campaigns.html#facebook">Facebook & Instagram Ads</a></li>
+      <li><a href="/services/digital-campaigns.html#display">Display (Google/Bing/Apple)</a></li>
+      <li><a href="/services/online-listings.html">Online Listings</a></li>
+      <li><a href="/services/reviews-reputation.html">Reviews & Reputation</a></li>
+      <li><a href="/services/websites-seo.html">Websites & SEO</a></li>
+    </ul>
+  </span>
+  <a href="/sales/integrated-one-pager.html">Media Kit</a>
+  <a href="/digital/pricing.html">Pricing</a>
+  <a href="/digital/contact.html" class="btn">Free Audit</a>
+</nav>
+<script>document.addEventListener('DOMContentLoaded',function(){const p=document.querySelector('.has-dropdown');if(p){const m=p.querySelector('.dropdown');p.addEventListener('mouseenter',()=>m.style.display='block');p.addEventListener('mouseleave',()=>m.style.display='none')}});</script>
 
-<header>
-  <div class="container nav">
-    <div class="logo">
-      <img src="assets/logo.svg" alt="Plateau Publishing Co. logo"/>
-      <span>Plateau Publishing Co.</span>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html" style="font-weight:700;">Home</a></li>
-        <li><a href="services.html" >Services</a></li>
-        <li><a href="pricing.html" >Pricing</a></li>
-        <li><a href="contact.html" >Contact</a></li>
-        <li><a class="cta" href="contact.html#audit">Free Audit</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="container">
-    <span class="badge">Lead Generation First</span>
-    <h1>Capture & Convert — Then Build the Brand</h1>
-    <p>We launch <strong>search & lead-gen campaigns</strong> (Google/Bing PPC, Meta Lead Ads, Display retargeting) with conversion-focused <strong>landing pages</strong> and tracking — and pair them with <strong>impressions-based print</strong> to grow long-term trust.</p>
-    <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
-      <a class="cta" href="pricing.html">See Lead‑Gen Packages</a>
-      <a class="cta secondary" href="contact.html#audit">Get a Free Audit</a>
-    
-<!-- Button Bar (drop this where you want quick-access buttons) -->
-<div class="ppc-button-bar" style="display:flex;flex-wrap:wrap;gap:.6rem;margin:16px 0">
-  <a class="pillbtn" href="/#about">About</a>
-  <a class="pillbtn" href="/#magazines">Magazines</a>
-  <a class="pillbtn" href="/services/digital-campaigns.html">Digital Campaigns</a>
-  <a class="pillbtn" href="/services/ppc-search.html">Lead Generation (PPC/Search)</a>
-  <a class="pillbtn" href="/digital/pricing.html">Pricing</a>
-  <a class="pillbtn primary" href="/digital/contact.html">Free Audit</a>
-</div>
-
-</div>
-  </div>
-</section>
-<section class="section">
-  <div class="container">
-    <h2>What’s Included</h2>
-    <div class="grid cols-3" style="margin-top:14px;">
-      <div class="card">
-        <h3>Lead Gen Engine</h3>
-        <ul class="check">
-          <li>Google & Bing Search (PPC)</li>
-          <li>Meta Lead Ads (FB/IG)</li>
-          <li>Display retargeting (Google/Bing/Apple)</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Conversion Setup</h3>
-        <ul class="check">
-          <li>High-converting landing page</li>
-          <li>Call & form tracking (GA4/Tag Manager)</li>
-          <li>Monthly optimization & reporting</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Brand Trust (Add‑On)</h3>
-        <ul class="check">
-          <li>Impressions-based print sponsorships</li>
-          <li>Community storytelling & design</li>
-          <li>Optional social branding campaigns</li>
-        </ul>
-      </div>
-    
-<!-- Button Bar (drop this where you want quick-access buttons) -->
-<div class="ppc-button-bar" style="display:flex;flex-wrap:wrap;gap:.6rem;margin:16px 0">
-  <a class="pillbtn" href="/#about">About</a>
-  <a class="pillbtn" href="/#magazines">Magazines</a>
-  <a class="pillbtn" href="/services/digital-campaigns.html">Digital Campaigns</a>
-  <a class="pillbtn" href="/services/ppc-search.html">Lead Generation (PPC/Search)</a>
-  <a class="pillbtn" href="/digital/pricing.html">Pricing</a>
-  <a class="pillbtn primary" href="/digital/contact.html">Free Audit</a>
-</div>
-
-</div>
-  </div>
-</section>
-
-<footer>
-  <div class="container" style="padding:24px 0;">
-    <div style="display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;">
-      <div>
-        <div class="small">© 2025 Plateau Publishing Co. | Enumclaw & Bonney Lake, WA</div>
-        <div class="small">Print (Branding) + Digital (Leads): Full-Funnel Growth</div>
-      </div>
-      <div class="small">
-        <div>Phone: <a href="tel:+12064061869">(206) 406-1869</a></div>
-        <div>Email: <a href="mailto:caseymorris@bestversionmedia.com">caseymorris@bestversionmedia.com</a></div>
+  <header class="hero">
+    <div class="container">
+      <h1>Digital Marketing — Built on Your Core</h1>
+      <p>Keep your impression-based bundles. When you’re ready for measurable ROI, add the <strong>Lead Gen Starter</strong> — no overhaul required.</p>
+      <div class="cta-row">
+        <a class="cta" href="/digital/bundles.html">See Digital Bundles</a>
+        <a class="cta secondary" href="/digital/lead-gen.html">Add Lead Gen Starter</a>
       </div>
     </div>
-  </div>
-</footer>
+  </header>
+  <section class="section">
+    <div class="container">
+      <div class="grid cols-3">
+        <div class="card"><strong>Digital Bundles</strong><br/>FB/IG + Display impressions, retargeting options, monthly reporting.</div>
+        <div class="card"><strong>Online Presence</strong><br/>Listings, Reviews & Reputation — get found and chosen.</div>
+        <div class="card"><strong>Lead Gen Add-On</strong><br/>Search PPC + Meta Lead Ads + tracking and reporting.</div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2025 Plateau Publishing Co. — Katie & Casey Morris</div>
+      <div>Email: <a href="mailto:caseymorris@bestversionmedia.com">caseymorris@bestversionmedia.com</a></div>
+    </div><div><a href="https://theplateaupublishingco.com">theplateaupublishingco.com</a></div>
+  </footer>
 
-</body></html>
+<script>
+  // Highlight current page link in the nav
+  document.addEventListener('DOMContentLoaded', function(){
+    const path = window.location.pathname.replace(/\/$/, '');
+    document.querySelectorAll('#site-nav a[href]').forEach(a => {
+      const href = a.getAttribute('href').replace(/\/$/, '');
+      if (href && href === path) {
+        a.classList.add('active-link');
+      }
+    });
+  });
+  // On homepage, highlight section links on scroll
+  document.addEventListener('DOMContentLoaded', function(){
+    const sections = ['about','magazines','advertise'];
+    if (!sections.some(id => document.getElementById(id))) return;
+    const links = {};
+    document.querySelectorAll('#site-nav a[href^="/#"]').forEach(a => {
+      const id = a.getAttribute('href').split('#')[1];
+      links[id] = a;
+    });
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          Object.values(links).forEach(x=>x.classList.remove('active-link'));
+          const id = e.target.id;
+          if(links[id]) links[id].classList.add('active-link');
+        }
+      });
+    }, {threshold: 0.6});
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+  });
+</script>
+<style>
+  /* Active nav state */
+  #site-nav a.active-link{ background:var(--gold); color:var(--ink); }
+</style>
+
+</body>
+</html>

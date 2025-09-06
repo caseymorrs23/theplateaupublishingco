@@ -1,34 +1,91 @@
-<!-- Drop-in nav matching site style -->
-<nav id="site-nav" aria-label="Primary" style="position:sticky;top:0;z-index:50;background:var(--nav);border-bottom:1px solid #dbcbb7;display:flex;justify-content:center;gap:1rem;padding:.75rem 1rem;flex-wrap:wrap">
-  <a href="/#about" style="text-decoration:none;color:var(--ink);font-weight:700;padding:.4rem .7rem;border-radius:.5rem">About</a>
-  <a href="/#magazines" style="text-decoration:none;color:var(--ink);font-weight:700;padding:.4rem .7rem;border-radius:.5rem">Magazines</a>
-  <a href="/#advertise" style="text-decoration:none;color:var(--ink);font-weight:700;padding:.4rem .7rem;border-radius:.5rem">Advertise</a>
-  <a href="/services/branding.html" style="text-decoration:none;color:var(--ink);font-weight:700;padding:.4rem .7rem;border-radius:.5rem">Branding</a>
-  <a href="/services/sponsorships.html" style="text-decoration:none;color:var(--ink);font-weight:700;padding:.4rem .7rem;border-radius:.5rem">Sponsorships</a>
-  <span class="has-dropdown" style="position:relative">
-    <a href="/services/digital-campaigns.html" style="text-decoration:none;color:var(--ink);font-weight:700;padding:.4rem .7rem;border-radius:.5rem">Digital Campaigns ▾</a>
-    <ul class="dropdown" style="display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid #e5e7eb;border-radius:.8rem;padding:.5rem;list-style:none;min-width:260px">
-      <li><a href="/services/ppc-search.html" style="display:block;padding:.4rem .6rem;color:var(--ink);text-decoration:none;border-radius:.4rem">PPC & Search</a></li>
-      <li><a href="/services/digital-campaigns.html#facebook" style="display:block;padding:.4rem .6rem;color:var(--ink);text-decoration:none;border-radius:.4rem">Facebook & Instagram Ads</a></li>
-      <li><a href="/services/digital-campaigns.html#display" style="display:block;padding:.4rem .6rem;color:var(--ink);text-decoration:none;border-radius:.4rem">Display (Google/Bing/Apple)</a></li>
-      <li><a href="/services/online-listings.html" style="display:block;padding:.4rem .6rem;color:var(--ink);text-decoration:none;border-radius:.4rem">Online Listings</a></li>
-      <li><a href="/services/reviews-reputation.html" style="display:block;padding:.4rem .6rem;color:var(--ink);text-decoration:none;border-radius:.4rem">Reviews & Reputation</a></li>
-      <li><a href="/services/websites-seo.html" style="display:block;padding:.4rem .6rem;color:var(--ink);text-decoration:none;border-radius:.4rem">Websites & SEO</a></li>
+<!-- Drop-in nav (theme-matched) -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#f6efe7;
+  --ink:#1f1f1f;
+  --muted:#5f5f5f;
+  --paper:#ffffff;
+  --card:#ffffff;
+  --brand:#234236;  /* deep green */
+  --rust:#b74d34;   /* primary button */
+  --gold:#d4a44c;   /* hover accent */
+  --nav:#efe7de;    /* nav background */
+  --border:#dbcbb7;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.45}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* Sticky top nav */
+#site-nav{position:sticky;top:0;z-index:50;background:var(--nav);border-bottom:1px solid var(--border);display:flex;justify-content:center;gap:1rem;padding:.75rem 1rem;flex-wrap:wrap}
+#site-nav > a, #site-nav .has-dropdown > a{color:var(--ink);font-weight:700;padding:.4rem .7rem;border-radius:.5rem;text-decoration:none}
+#site-nav > a:hover, #site-nav .has-dropdown > a:hover{background:var(--gold);color:var(--ink)}
+#site-nav .btn{background:var(--rust);color:#fff;border:none;padding:.55rem .8rem;border-radius:.6rem;text-decoration:none;font-weight:700}
+#site-nav .btn:hover{background:var(--gold);color:var(--ink)}
+.has-dropdown{position:relative}
+.has-dropdown .dropdown{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid #e5e7eb;border-radius:.8rem;padding:.5rem;list-style:none;min-width:260px}
+.has-dropdown .dropdown a{display:block;padding:.4rem .6rem;color:var(--ink);text-decoration:none;border-radius:.4rem}
+.has-dropdown .dropdown a:hover{background:#f5f5f5}
+
+/* Hero */
+.hero{background:linear-gradient(180deg,var(--bg),#ffffff);padding:64px 0}
+h1,h2{font-family:'Playfair Display',serif}
+.hero h1{font-size:clamp(30px,5vw,56px);margin:0 0 12px 0}
+.hero p{max-width:760px;color:var(--muted);margin:0}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.cta{display:inline-block;background:var(--rust);color:#fff;padding:12px 16px;border-radius:10px;font-weight:700}
+.cta.secondary{background:var(--brand)}
+.cta:hover{background:var(--gold);color:var(--ink)}
+
+/* Pill buttons */
+.ppc-button-bar{display:flex;flex-wrap:wrap;gap:.6rem;margin:16px 0}
+.pillbtn{display:inline-block;background:var(--nav);color:var(--ink);padding:.55rem .9rem;border-radius:999px;font-weight:700;text-decoration:none;border:1px solid var(--border)}
+.pillbtn:hover{background:var(--gold);color:var(--ink)}
+.pillbtn.primary{background:var(--rust);color:#fff;border-color:transparent}
+.pillbtn.primary:hover{background:var(--gold);color:var(--ink)}
+
+/* Sections */
+.section{padding:56px 0}
+.section h2{font-size:clamp(24px,3.2vw,40px);margin:0 0 10px}
+.lead{color:var(--muted);max-width:800px}
+
+.grid{display:grid;gap:20px}
+@media(min-width:860px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px}
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{padding:12px;border:1px solid var(--border);text-align:left}
+.table th{background:#fff6e6}
+
+/* Footer */
+footer{background:#1b1a1a;color:#eee}
+footer a{color:#eee;text-decoration:underline}
+.footer-inner{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;padding:22px 0}
+</style>
+
+<nav id="site-nav" aria-label="Primary">
+  <a href="/#about">About</a>
+  <a href="/#magazines">Magazines</a>
+  <a href="/#advertise">Advertise</a>
+  <a href="/digital/bundles.html">Digital Bundles</a>
+  <span class="has-dropdown">
+    <a href="/services/digital-campaigns.html">Digital Campaigns ▾</a>
+    <ul class="dropdown">
+      <li><a href="/digital/lead-gen.html">Lead Gen Starter (PPC/Search)</a></li>
+      <li><a href="/services/digital-campaigns.html#facebook">Facebook & Instagram Ads</a></li>
+      <li><a href="/services/digital-campaigns.html#display">Display (Google/Bing/Apple)</a></li>
+      <li><a href="/services/online-listings.html">Online Listings</a></li>
+      <li><a href="/services/reviews-reputation.html">Reviews & Reputation</a></li>
+      <li><a href="/services/websites-seo.html">Websites & SEO</a></li>
     </ul>
   </span>
-  <a href="/digital/pricing.html" style="text-decoration:none;color:var(--ink);font-weight:700;padding:.4rem .7rem;border-radius:.5rem">Pricing</a>
-  <a href="/digital/contact.html" class="btn" style="background:var(--rust);color:#fff;border:none;padding:.55rem .8rem;border-radius:.6rem;text-decoration:none;font-weight:700">Free Audit</a>
+  <a href="/sales/integrated-one-pager.html">Media Kit</a>
+  <a href="/digital/pricing.html">Pricing</a>
+  <a href="/digital/contact.html" class="btn">Free Audit</a>
 </nav>
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  const nav = document.getElementById('site-nav');
-  const links = nav.querySelectorAll('a[href]');
-  links.forEach(a => { a.addEventListener('mouseenter', ()=>{ a.style.background = 'var(--gold)'; a.style.color='var(--ink)'; }); a.addEventListener('mouseleave', ()=>{ a.style.background = ''; a.style.color='var(--ink)'; }); });
-  const parent = document.querySelector('.has-dropdown');
-  if(parent){
-    const menu = parent.querySelector('.dropdown');
-    parent.addEventListener('mouseenter', ()=> menu.style.display='block');
-    parent.addEventListener('mouseleave', ()=> menu.style.display='none');
-  }
-});
-</script>
+<script>document.addEventListener('DOMContentLoaded',function(){const p=document.querySelector('.has-dropdown');if(p){const m=p.querySelector('.dropdown');p.addEventListener('mouseenter',()=>m.style.display='block');p.addEventListener('mouseleave',()=>m.style.display='none')}});</script>
+

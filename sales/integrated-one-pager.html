@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Integrated Print & Digital — One Pager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--bg:#f6efe7;--ink:#1f1f1f;--muted:#5f5f5f;--brand:#234236;--rust:#b74d34;--gold:#d4a44c;--border:#dbcbb7}
+    *{box-sizing:border-box}html,body{margin:0}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#fff;color:var(--ink)}
+    .page{max-width:800px;margin:0 auto;padding:28px}
+    h1,h2{font-family:'Playfair Display',serif;margin:.25rem 0}
+    .muted{color:var(--muted)}
+    .grid{display:grid;gap:12px}
+    @media(min-width:760px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+    .card{border:1px solid var(--border);border-radius:12px;padding:14px}
+    .pill{display:inline-block;background:#fff5e6;border:1px solid var(--border);border-radius:999px;padding:.3rem .7rem;font-weight:700}
+    .cta{display:inline-block;background:var(--rust);color:#fff;padding:.6rem .9rem;border-radius:.5rem;text-decoration:none;font-weight:700}
+    .cta:hover{background:var(--gold);color:#000}
+    .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:.25rem 0 1rem}
+    .small{font-size:.9rem;color:var(--muted)}
+    @media print {.noprint{display:none} body{background:#fff} .page{box-shadow:none} a{color:#000; text-decoration:none}}
+  </style>
+
+<!-- GA4/Tag Manager hooks (set your ID below) -->
+<script>
+  // Replace with your GA4 Measurement ID, e.g., 'G-XXXXXXX'
+  const GA4_ID = 'G-REPLACE_ME';
+  (function initGA(){
+    if (!GA4_ID || GA4_ID === 'G-REPLACE_ME') return; // don't load until you set it
+    var s1 = document.createElement('script');
+    s1.async = true; s1.src = 'https://www.googletagmanager.com/gtag/js?id='+GA4_ID;
+    document.head.appendChild(s1);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA4_ID);
+  })();
+
+  // Generic event dispatcher: works with GA4 (gtag) or GTM (dataLayer)
+  function trackEvent(action, params){
+    params = params || {};
+    try{
+      if (window.gtag) gtag('event', action, params);
+      if (window.dataLayer) dataLayer.push(Object.assign({event: action}, params));
+    }catch(e){}
+  }
+
+  // Click bindings for buttons/links with data-ga-action
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('[data-ga-action]').forEach(function(el){
+      el.addEventListener('click', function(){
+        trackEvent(el.getAttribute('data-ga-action'), {
+          label: el.getAttribute('data-ga-label') || '',
+          location: window.location.pathname
+        });
+      });
+    });
+  });
+</script>
+
+</head>
+<body>
+  <div class="page">
+    <div class="bar noprint" style="justify-content:space-between">
+      <div><strong>Katie & Casey Morris</strong> • (206) 406-1869 • <a href="https://theplateaupublishingco.com">theplateaupublishingco.com</a></div>
+      <a class="cta" href="#" data-ga-action="download_pdf" data-ga-label="One Pager" onclick="window.print();return false;">Print / Save as PDF</a>
+    </div>
+    <div><a class="cta" href="#" data-ga-action="download_pdf" data-ga-label="One Pager" onclick="window.print();return false;">Download PDF</a></div>
+    <h1>Integrated Print & Digital Marketing</h1>
+    <p class="muted">Multi-channel campaigns that build trust and visibility in the community.</p>
+
+    <div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin:10px 0 14px">
+      <div style="font-size:1.4rem;font-weight:800">400% More Impact <span class="muted" style="font-weight:500">vs. digital alone</span></div>
+      <span class="pill">Targeted Print • Digital Ads • Online Presence</span>
+    </div>
+
+    <h2>Multi-Channel Campaigns</h2>
+    <p class="small">Best Version Media (BVM) does not guarantee a specific number of impressions or specific retargeting. The impressions number and retargeting may vary each month based on online activity and platform changes.</p>
+    <div class="grid cols-3">
+      <div class="card">
+        <strong>Standard</strong>
+        <ul>
+          <li>Facebook/Instagram: 1–5k impressions</li>
+          <li>Display: 5–10k impressions</li>
+          <li>Online Presence: Listings & Reviews</li>
+        </ul>
+      </div>
+      <div class="card">
+        <strong>Premium</strong>
+        <ul>
+          <li>Facebook/Instagram: 5–10k impressions</li>
+          <li>Display: 10–20k impressions</li>
+          <li>Online Presence: Listings & Reviews</li>
+          <li>Facebook Retargeting</li>
+        </ul>
+      </div>
+      <div class="card">
+        <strong>Pro</strong>
+        <ul>
+          <li>Facebook/Instagram: 10–20k impressions</li>
+          <li>Display: 20–50k impressions</li>
+          <li>Online Presence: Listings & Reviews</li>
+          <li>Facebook Retargeting</li>
+          <li>Additional Radius / Postal Codes</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 style="margin-top:20px">Lead Gen Starter (Add-On)</h2>
+    <div class="grid" style="grid-template-columns:1.2fr 1fr">
+      <div class="card">
+        <ul>
+          <li>Google & Bing Search (high-intent keywords)</li>
+          <li>Meta Lead Ads (native FB/IG forms)</li>
+          <li>Conversion tracking (calls/forms, GA4)</li>
+          <li>Optional landing page + A/B tests</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div><strong>How it fits:</strong></div>
+        <div>Branding & Presence → <em>Lead Gen captures demand now</em></div>
+        <div class="small" style="margin-top:.5rem">Pair with any bundle. Month-to-month, 3‑month minimum recommended.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px" class="noprint">
+      <a class="cta" href="/digital/contact.html">Request a Free Audit</a>
+    </div>
+  </div>
+
+<script>
+  // Highlight current page link in the nav
+  document.addEventListener('DOMContentLoaded', function(){
+    const path = window.location.pathname.replace(/\/$/, '');
+    document.querySelectorAll('#site-nav a[href]').forEach(a => {
+      const href = a.getAttribute('href').replace(/\/$/, '');
+      if (href && href === path) {
+        a.classList.add('active-link');
+      }
+    });
+  });
+  // On homepage, highlight section links on scroll
+  document.addEventListener('DOMContentLoaded', function(){
+    const sections = ['about','magazines','advertise'];
+    if (!sections.some(id => document.getElementById(id))) return;
+    const links = {};
+    document.querySelectorAll('#site-nav a[href^="/#"]').forEach(a => {
+      const id = a.getAttribute('href').split('#')[1];
+      links[id] = a;
+    });
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          Object.values(links).forEach(x=>x.classList.remove('active-link'));
+          const id = e.target.id;
+          if(links[id]) links[id].classList.add('active-link');
+        }
+      });
+    }, {threshold: 0.6});
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+  });
+</script>
+<style>
+  /* Active nav state */
+  #site-nav a.active-link{ background:var(--gold); color:var(--ink); }
+</style>
+
+</body>
+</html>
