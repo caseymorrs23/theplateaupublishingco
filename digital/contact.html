@@ -4,6 +4,8 @@
 <title>Contact | Free Lead‑Gen Audit</title>
 <meta name="description" content="Request a free lead generation audit. We'll review your search, social, landing pages, and tracking.">
 <link rel="stylesheet" href="assets/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>/* playfair headings */ h1,h2{font-family:'Playfair Display',serif}</style>
 </head>
 <body>
 
@@ -29,7 +31,11 @@
   <div class="container">
     <h1>Request a Free Lead‑Gen Audit</h1>
     <p class="small">We’ll assess your search campaigns, social lead ads, landing pages, and tracking — plus recommend whether to add print branding.</p>
-    <form class="form" id="audit">
+    <form class="form" id="audit" method="POST" action="https://formsubmit.co/caseymorris@bestversionmedia.com">
+      <input type="hidden" name="_subject" value="New Lead-Gen Audit Request — Plateau Publishing Co.">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://theplateaupublishingco.com/thank-you.html">
       <label for="name">Name</label>
       <input id="name" name="name" placeholder="Your name" required>
       <label for="business">Business Name</label>
@@ -69,13 +75,5 @@
   </div>
 </footer>
 
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  var form = document.getElementById('audit');
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    alert('Thanks! We will contact you within 1 business day.');
-  });
-});
-</script>
+<noscript><p class="small">JavaScript is disabled; the form will still email us.</p></noscript>
 </body></html>
