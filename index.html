@@ -114,27 +114,61 @@ footer a{color:#eee;text-decoration:underline}
 </head>
 <body>
   
+
 <nav id="site-nav" aria-label="Primary">
   <a href="/#about">About</a>
-  <a href="/#magazines">Magazines</a>
-  <a href="/#advertise">Advertise</a>
-  <a href="/digital/bundles.html">Digital Bundles</a>
   <span class="has-dropdown">
-    <a href="/services/digital-campaigns.html">Digital Campaigns ▾</a>
+    <a href="/print/index.html">Print ▾</a>
     <ul class="dropdown">
-      <li><a href="/digital/lead-gen.html">Lead Gen Starter (PPC/Search)</a></li>
-      <li><a href="/services/digital-campaigns.html#facebook">Facebook & Instagram Ads</a></li>
-      <li><a href="/services/digital-campaigns.html#display">Display (Google/Bing/Apple)</a></li>
-      <li><a href="/services/online-listings.html">Online Listings</a></li>
-      <li><a href="/services/reviews-reputation.html">Reviews & Reputation</a></li>
-      <li><a href="/services/websites-seo.html">Websites & SEO</a></li>
+      <li><a href="/print/index.html#enumclaw">Enumclaw Living</a></li>
+      <li><a href="/print/index.html#bonneylake">Bonney Lake Living</a></li>
     </ul>
   </span>
+  <a href="/digital/bundles.html">Digital</a>
+  <a href="/services/online-listings.html">Online Presence</a>
+  <a href="/digital/lead-gen.html">Lead Gen</a>
+  <a href="/services/websites-seo.html">Websites</a>
+  <a href="/services/websites-seo.html#seo">SEO</a>
+  <a href="/reviews/index.html">Reviews</a>
+  <a href="/about/publishers.html">Publishers</a>
   <a href="/sales/integrated-one-pager.html">Media Kit</a>
-  <a href="/digital/pricing.html">Pricing</a>
   <a href="/digital/contact.html" class="btn">Free Audit</a>
 </nav>
-<script>document.addEventListener('DOMContentLoaded',function(){const p=document.querySelector('.has-dropdown');if(p){const m=p.querySelector('.dropdown');p.addEventListener('mouseenter',()=>m.style.display='block');p.addEventListener('mouseleave',()=>m.style.display='none')}});</script>
+<script>
+// Robust dropdown behavior with overflow protection
+document.addEventListener('DOMContentLoaded', function(){
+  const parents = document.querySelectorAll('.has-dropdown');
+  parents.forEach(p => {
+    const m = p.querySelector('.dropdown');
+    function show(){ m.style.display='block'; position(); }
+    function hide(){ m.style.display='none'; }
+    function position(){
+      const rect = m.getBoundingClientRect();
+      if(rect.right > window.innerWidth) { m.style.left = 'auto'; m.style.right = '0'; }
+      else { m.style.left = '0'; m.style.right = 'auto'; }
+    }
+    p.addEventListener('mouseenter', show);
+    p.addEventListener('mouseleave', hide);
+    window.addEventListener('resize', ()=>{ if(m.style.display==='block') position(); });
+  });
+});
+</script>
+<style>
+/* Nav refinement to avoid "wonky" dropdowns */
+#site-nav{position:sticky;top:0;z-index:60;background:var(--nav);border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:.6rem 1rem;align-items:center;justify-content:center;padding:.6rem 1rem}
+#site-nav > a, #site-nav .has-dropdown > a{font-weight:700;color:var(--ink);text-decoration:none;padding:.45rem .7rem;border-radius:.5rem;white-space:nowrap}
+#site-nav > a:hover, #site-nav .has-dropdown > a:hover{background:var(--gold);color:var(--ink)}
+#site-nav .btn{background:var(--rust);color:#fff;border:none;padding:.55rem .8rem;border-radius:.6rem;text-decoration:none;font-weight:700}
+#site-nav .btn:hover{background:var(--gold);color:var(--ink)}
+.has-dropdown{position:relative}
+.has-dropdown .dropdown{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid #e5e7eb;border-radius:.8rem;padding:.5rem;list-style:none;min-width:240px;max-width:90vw;box-shadow:0 10px 24px rgba(0,0,0,.08)}
+.has-dropdown .dropdown a{display:block;padding:.45rem .6rem;color:var(--ink);text-decoration:none;border-radius:.4rem;white-space:nowrap}
+.has-dropdown .dropdown a:hover{background:#f5f5f5}
+@media (max-width:720px){
+  #site-nav{justify-content:flex-start}
+}
+</style>
+
 
   <header class="hero">
     <div class="container">
@@ -200,7 +234,24 @@ footer a{color:#eee;text-decoration:underline}
         <div>Email: <a href="mailto:caseymorris@bestversionmedia.com">caseymorris@bestversionmedia.com</a></div>
       </div>
     </div><div><a href="https://theplateaupublishingco.com">theplateaupublishingco.com</a></div>
-  </footer>
+  
+  <section id="reviews" class="section" style="background:#fff">
+    <div class="container">
+      <h2>What our neighbors say</h2>
+      <p class="lead">A few words from local partners and sponsors.</p>
+      <div class="grid cols-3" style="margin-top:14px">
+        <div class="card">"Our phones started ringing after pairing print with digital." — Local Business</div>
+        <div class="card">"Enumclaw Living has been the best long-term investment we made." — Sponsor</div>
+        <div class="card">"The listings dashboard keeps our info accurate everywhere." — Owner</div>
+      </div>
+      <div class="cta-row" style="margin-top:14px">
+        <a class="cta" href="/reviews/index.html">See Reviews</a>
+        <a class="cta secondary" href="/about/publishers.html">Meet the Publishers</a>
+      </div>
+    </div>
+  </section>
+
+</footer>
 
 <script>
   // Highlight current page link in the nav
