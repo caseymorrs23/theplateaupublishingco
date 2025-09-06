@@ -3,12 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Media Kit — One Pager</title>
+  <title>Media Kit — Integrated Print & Digital</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/site.css" />
+  <style>
+    .hero-illustration img{width:100%;height:auto;border:1px solid var(--border);border-radius:16px}
+  </style>
 </head>
 <body>
-  
+  <!-- Inline nav for consistency -->
+  <!-- Include this at the top of each page or fetch it into a placeholder -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/site.css" />
+
 <nav id="site-nav" aria-label="Primary">
   <a href="/#about">About</a>
   <span class="has-dropdown">
@@ -50,24 +57,74 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 </script>
 
-  
-<header class="hero">
-  <div class="container">
-    <h1>Integrated Print & Digital — One Pager</h1>
-    <p class="lead">Multi-channel campaigns that build trust and visibility in the community.</p>
-    <div class="cta-row"><a class="cta" href="#" onclick="window.print();return false;">Download PDF</a></div>
-  </div>
-</header>
-<section class="section">
-  <div class="container grid cols-3" style="margin-top:14px">
-    <div class="card"><strong>Standard</strong><br/>FB/IG 1–5k • Display 5–10k</div>
-    <div class="card"><strong>Premium</strong><br/>FB/IG 5–10k • Display 10–20k</div>
-    <div class="card"><strong>Pro</strong><br/>FB/IG 10–20k • Display 20–50k</div>
-  </div>
-  <div class="container" style="margin-top:14px">
-    <div class="card"><strong>Lead Gen Starter</strong><br/>PPC/Search + Meta Lead Ads • Calls & Forms • GA4 tracking.</div>
-  </div>
-</section>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-illustration">
+        <img src="/assets/illustration-leavebehind.svg" alt="Integrated Print & Digital hero">
+      </div>
+      <div class="cta-row">
+        <a class="cta" href="#" onclick="window.print();return false;">Download PDF</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <h2>Multi-Channel Campaigns</h2>
+      <div class="grid cols-3" style="margin-top:14px">
+        <div class="card">
+          <strong>Standard</strong>
+          <ul>
+            <li>Facebook/Instagram: 1–5k impressions</li>
+            <li>Display (Google/Bing/Apple): 5–10k impressions</li>
+            <li>Online Presence: Listings & Reviews</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>Premium</strong>
+          <ul>
+            <li>Facebook/Instagram: 5–10k impressions</li>
+            <li>Display (Google/Bing/Apple): 10–20k impressions</li>
+            <li>Online Presence: Listings & Reviews</li>
+            <li>Facebook Retargeting</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>Pro</strong>
+          <ul>
+            <li>Facebook/Instagram: 10–20k impressions</li>
+            <li>Display (Google/Bing/Apple): 20–50k impressions</li>
+            <li>Online Presence: Listings & Reviews</li>
+            <li>Facebook Retargeting</li>
+            <li>Additional Radius / Postal Codes</li>
+          </ul>
+        </div>
+      </div>
+      <p class="lead" style="margin-top:8px">Best Version Media (BVM) does not guarantee a specific number of impressions or specific retargeting. The impressions number and retargeting may vary each month based on online activity and platform changes.</p>
+    </div>
+  </section>
+
+  <section class="section" style="background:#fff">
+    <div class="container">
+      <h2>Lead Gen Starter (Add-On)</h2>
+      <div class="grid cols-2" style="margin-top:14px">
+        <div class="card">
+          <ul>
+            <li>PPC/Search (Google & Bing) on high-intent keywords</li>
+            <li>Meta Lead Ads (native FB/IG forms)</li>
+            <li>Conversion tracking (calls/forms, GA4)</li>
+            <li>Optional landing page + A/B tests</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>How it fits</strong>
+          <p>Branding & Presence → <em>Lead Gen captures demand now</em>.</p>
+          <p class="small">Pair with any bundle. Month-to-month, 3-month minimum recommended.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer>
     <div class="container footer-inner">
@@ -75,5 +132,14 @@ document.addEventListener('DOMContentLoaded', function(){
       <div><a href="https://theplateaupublishingco.com">theplateaupublishingco.com</a></div>
     </div>
   </footer>
+
+  <style>
+    @page { size: A4; margin: 14mm }
+    @media print {
+      .noprint{display:none !important}
+      a{color:#000 !important; text-decoration:none !important}
+      .hero-illustration img{border:none}
+    }
+  </style>
 </body>
 </html>
