@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SEO Services | Plateau Publishing Co.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/site.css" />
+</head>
+<body>
+  <!-- inline nav -->
+  <!-- Include this at the top of each page or fetch it into a placeholder -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/site.css" />
+
+<nav id="site-nav" aria-label="Primary">
+  <a href="/#about">About</a>
+  <a href="/print/index.html">Print</a>
+  <a href="/digital/bundles.html">Digital</a>
+  <a href="/services/online-presence.html">Online Presence</a>
+  <a href="/digital/lead-gen.html">Lead Gen</a>
+  <a href="/services/websites-seo.html">Websites</a>
+  <a href="/services/seo.html">SEO</a>
+  <a href="/reviews/index.html">Reviews</a>
+  <a href="/sales/integrated-one-pager.html">Media Kit</a>
+  <a href="/digital/contact.html" class="btn">Free Audit</a>
+</nav>
+<script>
+// Smarter dropdown position + active link highlight
+document.addEventListener('DOMContentLoaded', function(){
+  const parents=document.querySelectorAll('.has-dropdown');
+  parents.forEach(p=>{
+    const m=p.querySelector('.dropdown');
+    function show(){ m.style.display='block'; position(); }
+    function hide(){ m.style.display='none'; }
+    function position(){
+      const rect=m.getBoundingClientRect();
+      if(rect.right>window.innerWidth){ m.style.left='auto'; m.style.right='0'; } else { m.style.left='0'; m.style.right='auto'; }
+    }
+    p.addEventListener('mouseenter',show); p.addEventListener('mouseleave',hide);
+    window.addEventListener('resize',()=>{ if(m.style.display==='block') position(); });
+  });
+  const path=window.location.pathname.replace(/\/$/, '');
+  document.querySelectorAll('#site-nav a[href]').forEach(a=>{
+    const href=a.getAttribute('href').replace(/\/$/,''); if(href===path) a.classList.add('active-link');
+  });
+});
+</script>
+
+
+  <header class="hero">
+    <div class="container">
+      <h1>SEO for Local Growth</h1>
+      <p class="lead">Own your local searches with clean structure, accurate listings, and content that matches real intent. We keep your <em>core</em> print/digital plan intact and use SEO to increase discovery and conversions over time.</p>
+      <div class="cta-row">
+        <a class="cta" href="/digital/contact.html">Request a Free SEO Check</a>
+        <a class="cta secondary" href="/services/online-presence.html">See Online Presence</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container grid cols-3">
+      <div class="card">
+        <strong>Technical Foundations</strong>
+        <ul>
+          <li>Speed & mobile checks</li>
+          <li>Core Web Vitals guidance</li>
+          <li>Indexing & sitemap hygiene</li>
+          <li>Site architecture & internal links</li>
+        </ul>
+      </div>
+      <div class="card">
+        <strong>Local Signals</strong>
+        <ul>
+          <li>Google Business Profile setup/optimization</li>
+          <li>Local schema (Organization, LocalBusiness, FAQ)</li>
+          <li>Citations alignment with listings sync</li>
+          <li>Review acquisition strategy</li>
+        </ul>
+      </div>
+      <div class="card">
+        <strong>Content & Conversions</strong>
+        <ul>
+          <li>Service & location pages that convert</li>
+          <li>FAQ content to match “near me” and “cost” intent</li>
+          <li>Lead capture (forms, calls, tracking)</li>
+          <li>Quarterly content plan</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:#fff">
+    <div class="container">
+      <h2>Packages</h2>
+      <div class="grid cols-3" style="margin-top:14px">
+        <div class="card">
+          <h3>Local Essentials</h3>
+          <ul>
+            <li>Technical audit & fixes (light)</li>
+            <li>Google Business Profile optimization</li>
+            <li>Listings & citations alignment</li>
+            <li>1× service page refresh</li>
+            <li>Monthly checkpoint & report</li>
+          </ul>
+          <p class="lead">Best for: businesses starting SEO to support print & digital.</p>
+        </div>
+        <div class="card">
+          <h3>Growth</h3>
+          <ul>
+            <li>Everything in Essentials</li>
+            <li>On‑page tuning for top 5 pages</li>
+            <li>Local schema + FAQ schema</li>
+            <li>2× new pages or posts / month</li>
+            <li>Quarterly content roadmap</li>
+          </ul>
+          <p class="lead">Best for: service businesses in competitive areas.</p>
+        </div>
+        <div class="card">
+          <h3>Dominance</h3>
+          <ul>
+            <li>Everything in Growth</li>
+            <li>Advanced internal linking & topical clusters</li>
+            <li>4× new pages or posts / month</li>
+            <li>Conversion testing (forms & calls)</li>
+            <li>Monthly strategy session</li>
+          </ul>
+          <p class="lead">Best for: multi-location or high-competition categories.</p>
+        </div>
+      </div>
+      <p class="lead" style="margin-top:10px">Transparent reporting: rankings, local pack presence, calls/forms, and actions from Google Business Profile.</p>
+      <div class="cta-row">
+        <a class="cta" href="/digital/contact.html">Get SEO Pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2025 Plateau Publishing Co. — Katie & Casey Morris</div>
+      <div><a href="https://theplateaupublishingco.com">theplateaupublishingco.com</a></div>
+    </div>
+  </footer>
+</body>
+</html>
