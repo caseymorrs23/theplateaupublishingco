@@ -3,18 +3,67 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Thank You | Plateau Publishing Co.</title>
-  <link rel="stylesheet" href="/digital/assets/styles.css" />
+  <title>Thank You</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/site.css" />
 </head>
 <body>
-  <section class="hero">
-    <div class="container">
-      <h1>Thanks — we got your request.</h1>
-      <p class="small">We’ll reach out within one business day.</p>
-      <div style="margin-top:16px">
-        <a class="cta" href="/digital/index.html">Back to Digital</a>
-      </div>
+  
+<nav id="site-nav" aria-label="Primary">
+  <a href="/#about">About</a>
+  <span class="has-dropdown">
+    <a href="/print/index.html">Print ▾</a>
+    <ul class="dropdown">
+      <li><a href="/print/index.html#enumclaw">Enumclaw Living</a></li>
+      <li><a href="/print/index.html#bonneylake">Bonney Lake Living</a></li>
+    </ul>
+  </span>
+  <a href="/digital/bundles.html">Digital</a>
+  <a href="/services/online-presence.html">Online Presence</a>
+  <a href="/digital/lead-gen.html">Lead Gen</a>
+  <a href="/services/websites-seo.html">Websites</a>
+  <a href="/services/websites-seo.html#seo">SEO</a>
+  <a href="/reviews/index.html">Reviews</a>
+  <a href="/about/publishers.html">Publishers</a>
+  <a href="/sales/integrated-one-pager.html">Media Kit</a>
+  <a href="/digital/contact.html" class="btn">Free Audit</a>
+</nav>
+<script>
+// Smarter dropdown position + active link highlight
+document.addEventListener('DOMContentLoaded', function(){
+  const parents=document.querySelectorAll('.has-dropdown');
+  parents.forEach(p=>{
+    const m=p.querySelector('.dropdown');
+    function show(){ m.style.display='block'; position(); }
+    function hide(){ m.style.display='none'; }
+    function position(){
+      const rect=m.getBoundingClientRect();
+      if(rect.right>window.innerWidth){ m.style.left='auto'; m.style.right='0'; } else { m.style.left='0'; m.style.right='auto'; }
+    }
+    p.addEventListener('mouseenter',show); p.addEventListener('mouseleave',hide);
+    window.addEventListener('resize',()=>{ if(m.style.display==='block') position(); });
+  });
+  const path=window.location.pathname.replace(/\/$/, '');
+  document.querySelectorAll('#site-nav a[href]').forEach(a=>{
+    const href=a.getAttribute('href').replace(/\/$/,''); if(href===path) a.classList.add('active-link');
+  });
+});
+</script>
+
+  
+<header class="hero">
+  <div class="container">
+    <h1>Thanks — we got your request.</h1>
+    <p class="lead">We’ll reach out within one business day.</p>
+    <div class="cta-row"><a class="cta" href="/digital/bundles.html">Back to Digital</a></div>
+  </div>
+</header>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2025 Plateau Publishing Co. — Katie & Casey Morris</div>
+      <div><a href="https://theplateaupublishingco.com">theplateaupublishingco.com</a></div>
     </div>
-  </section>
+  </footer>
 </body>
 </html>

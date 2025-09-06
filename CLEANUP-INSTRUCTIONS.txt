@@ -1,0 +1,31 @@
+
+CLEAN RESET — What to remove so pages don't collide
+
+1) Remove old duplicate folders/files if they exist:
+   - /digital/assets/styles.css  (we now use /assets/site.css)
+   - /services/* (if you see older pages like digital-campaigns.html, ppc-search.html, etc. — keep only websites-seo.html and online-presence.html from this reset)
+   - /components/* (if not used)
+   - Any previous /nav-snippet.html copies from prior zips (use the one in this ZIP only)
+   - Any older /digital/*.html files not listed below
+
+2) Keep ONLY these pages going forward:
+   /index.html
+   /nav-snippet.html
+   /assets/site.css
+   /print/index.html
+   /digital/bundles.html
+   /digital/lead-gen.html
+   /digital/contact.html
+   /services/online-presence.html
+   /services/websites-seo.html
+   /about/publishers.html
+   /reviews/index.html
+   /reviews/testimonials.json
+   /sales/integrated-one-pager.html
+   /thank-you.html
+
+3) Double-check the nav:
+   It should show: Print ▾, Digital, Online Presence, Lead Gen, Websites, SEO, Reviews, Publishers, Media Kit, Free Audit.
+
+4) Hard refresh after deploy:
+   Cmd/Ctrl + Shift + R to bust caches.
