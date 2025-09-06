@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | Free Lead‑Gen Audit</title>
+<meta name="description" content="Request a free lead generation audit. We'll review your search, social, landing pages, and tracking.">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <img src="assets/logo.svg" alt="Plateau Publishing Co. logo"/>
+      <span>Plateau Publishing Co.</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html" >Home</a></li>
+        <li><a href="services.html" >Services</a></li>
+        <li><a href="pricing.html" >Pricing</a></li>
+        <li><a href="contact.html" style="font-weight:700;">Contact</a></li>
+        <li><a class="cta" href="contact.html#audit">Free Audit</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <h1>Request a Free Lead‑Gen Audit</h1>
+    <p class="small">We’ll assess your search campaigns, social lead ads, landing pages, and tracking — plus recommend whether to add print branding.</p>
+    <form class="form" id="audit">
+      <label for="name">Name</label>
+      <input id="name" name="name" placeholder="Your name" required>
+      <label for="business">Business Name</label>
+      <input id="business" name="business" placeholder="Your business name">
+      <label for="phone">Phone</label>
+      <input id="phone" name="phone" placeholder="(###) ###-####">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" placeholder="you@example.com" required>
+      <label for="budget">Monthly Ad Budget</label>
+      <select id="budget" name="budget">
+        <option value="">Select...</option>
+        <option value="1000-2000">$1,000–$2,000</option>
+        <option value="2000-5000">$2,000–$5,000</option>
+        <option value="5000-15000">$5,000–$15,000</option>
+        <option value="15000+">$15,000+</option>
+      </select>
+      <label for="message">Goals / Notes</label>
+      <textarea id="message" name="message" rows="6" placeholder="Tell us what success looks like..."></textarea>
+      <button class="cta" type="submit">Request Audit</button>
+      <div class="small">Or reach us at <a href="mailto:caseymorris@bestversionmedia.com">caseymorris@bestversionmedia.com</a> or <a href="tel:+12064061869">(206) 406-1869</a>.</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container" style="padding:24px 0;">
+    <div style="display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;">
+      <div>
+        <div class="small">© 2025 Plateau Publishing Co. | Enumclaw & Bonney Lake, WA</div>
+        <div class="small">Print (Branding) + Digital (Leads): Full-Funnel Growth</div>
+      </div>
+      <div class="small">
+        <div>Phone: <a href="tel:+12064061869">(206) 406-1869</a></div>
+        <div>Email: <a href="mailto:caseymorris@bestversionmedia.com">caseymorris@bestversionmedia.com</a></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var form = document.getElementById('audit');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    alert('Thanks! We will contact you within 1 business day.');
+  });
+});
+</script>
+</body></html>
