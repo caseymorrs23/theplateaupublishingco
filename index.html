@@ -9,27 +9,29 @@
 </head>
 <body>
   
+
 <nav id="site-nav" aria-label="Primary">
   <a href="/#about">About</a>
-  <span class="has-dropdown">
-    <a href="/print/index.html">Print ▾</a>
-    <ul class="dropdown">
-      <li><a href="/print/index.html#enumclaw">Enumclaw Living</a></li>
-      <li><a href="/print/index.html#bonneylake">Bonney Lake Living</a></li>
-    </ul>
-  </span>
+  <a href="/print/index.html">Print</a>
   <a href="/digital/bundles.html">Digital</a>
   <a href="/services/online-presence.html">Online Presence</a>
   <a href="/digital/lead-gen.html">Lead Gen</a>
   <a href="/services/websites-seo.html">Websites</a>
-  <a href="/services/websites-seo.html#seo">SEO</a>
+  <span class="has-dropdown">
+    <a href="/services/seo.html">SEO ▾</a>
+    <ul class="dropdown">
+      <li><a href="/services/seo.html#technical">Technical SEO</a></li>
+      <li><a href="/services/seo.html#local">Local SEO</a></li>
+      <li><a href="/services/seo.html#content">Content & Conversion</a></li>
+      <li><a href="/services/seo.html#packages">Packages</a></li>
+    </ul>
+  </span>
   <a href="/reviews/index.html">Reviews</a>
-  <a href="/about/publishers.html">Publishers</a>
   <a href="/sales/integrated-one-pager.html">Media Kit</a>
   <a href="/digital/contact.html" class="btn">Free Audit</a>
 </nav>
 <script>
-// Smarter dropdown position + active link highlight
+// Dropdown positioning + active link
 document.addEventListener('DOMContentLoaded', function(){
   const parents=document.querySelectorAll('.has-dropdown');
   parents.forEach(p=>{
@@ -50,8 +52,10 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 </script>
 
+
   
-<header class="hero">
+<header class="hero hero--image" style="background-image:url('/assets/hero.jpg'), url('/assets/hero-fallback.svg')">
+  <div class="overlay"></div>
   <div class="container">
     <h1>Grow Where You Live & Work</h1>
     <p class="lead">Print builds trust. Digital builds visibility. Lead Generation brings you customers today — without changing what already works.</p>
@@ -79,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <section id="publishers" class="section" style="background:#fff">
   <div class="container">
     <h2>Publishers</h2>
-    <p class="lead">Katie & Casey Morris — local husband and wife team committed to helping businesses grow where they live and work.</p>
+    <p class="lead">Katie & Casey Morris — local partners committed to helping businesses grow where they live and work.</p>
     <div class="grid cols-2" style="margin-top:14px">
       <div style="text-align:center; padding:18px 0">
         <div class="oval-mask" style="width:280px;height:420px;margin:0 auto;overflow:hidden;border-radius:9999px;border:6px solid var(--nav);box-shadow:0 8px 24px rgba(0,0,0,.08)">
