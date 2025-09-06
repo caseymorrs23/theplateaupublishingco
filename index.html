@@ -1,247 +1,235 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Plateau Publishing Co. | Enumclaw & Bonney Lake</title>
-  <meta name="description" content="The Plateau Publishing Co. connects the Plateau through community stories and targeted print + digital marketing. Request a media kit to advertise." />
-  <link rel="canonical" href="https://theplateaupublishingco.com/" />
-  <meta property="og:title" content="The Plateau Publishing Co." />
-  <meta property="og:description" content="Locally rooted. Plateau proud." />
-  <meta property="og:url" content="https://theplateaupublishingco.com/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="/assets/img/hero-mtrainier-clean.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Plateau Publishing Co. | Print & Digital Marketing</title>
+  <meta name="description" content="Local-first print and digital marketing. Magazine sponsorships that build trust, plus lead-generation campaigns (PPC/Search, Meta Lead Ads, Display) that capture and convert." />
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+
   <style>
     :root{
+      /* Unified theme (matches your site) */
       --bg:#f6efe7;
       --ink:#1f1f1f;
       --muted:#5f5f5f;
+      --paper:#ffffff;
       --card:#ffffff;
-      --brand:#234236;
-      --rust:#b74d34;
-      --gold:#d4a44c;
-      --nav:#efe7de;
+      --brand:#234236;  /* deep green */
+      --rust:#b74d34;   /* button primary */
+      --gold:#d4a44c;   /* hover accent */
+      --nav:#efe7de;    /* nav background */
+      --border:#dbcbb7;
     }
 
     *{box-sizing:border-box}
-    html,body{margin:0}
-    body{
-      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial;
-      color:var(--ink); background:var(--bg);
+    html,body{margin:0;padding:0}
+    body{background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.45}
+
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .container{max-width:1080px;margin:0 auto;padding:0 20px}
+
+    /* Sticky top nav (drop-in) */
+    #site-nav{
+      position:sticky; top:0; z-index:50;
+      background:var(--nav); border-bottom:1px solid var(--border);
+      display:flex; justify-content:center; gap:1rem; padding:.75rem 1rem; flex-wrap:wrap
     }
-
-    header{
-      color:#fff; padding:5rem 1rem 3rem; text-align:center;
-      background: url('/assets/img/hero-mtrainier-clean.png') center/cover no-repeat;
-      background-image: image-set(
-        url('/assets/img/hero-mtrainier-clean.webp') type('image/webp') 1x,
-        url('/assets/img/hero-mtrainier-clean.png') type('image/png') 1x
-      );
+    #site-nav > a,
+    #site-nav .has-dropdown > a{
+      text-decoration:none; color:var(--ink); font-weight:700;
+      padding:.4rem .7rem; border-radius:.5rem
     }
-    header h1{margin:0; font-size:clamp(2.2rem,3.5vw,3.25rem); letter-spacing:.5px; font-family:'Playfair Display',serif; text-shadow:0 2px 4px rgba(0,0,0,.6)}
-    header p{margin:.75rem auto 0; font-size:1.1rem; max-width:42rem; opacity:.95; text-shadow:0 1px 3px rgba(0,0,0,.6)}
+    #site-nav > a:hover,
+    #site-nav .has-dropdown > a:hover{ background:var(--gold); color:var(--ink) }
 
-    .cta-row{margin:1.25rem auto 0; display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap}
-    .btn{ background: var(--rust); color:#fff; border: none; padding:.75rem 1rem; border-radius:.75rem; text-decoration:none; font-weight:700; box-shadow: 0 2px 0 rgba(0,0,0,.08); }
-    .btn:hover{background: var(--gold); color: var(--ink)}
-    .btn.alt{background: var(--rust); color:#fff; border:2px solid var(--rust)}
-    .btn.alt:hover{background: var(--gold); border-color: var(--gold); color: var(--ink)}
+    #site-nav .btn{
+      background:var(--rust); color:#fff; border:none;
+      padding:.55rem .8rem; border-radius:.6rem; text-decoration:none; font-weight:700
+    }
+    #site-nav .btn:hover{ background:var(--gold); color:var(--ink) }
 
-    .selector{margin:1rem auto; text-align:center}
-    .selector label{font-weight:700; margin-right:.5rem}
-    select{padding:.5rem .75rem; border-radius:.5rem; border:1px solid #dbcbb7; background:#fff}
+    .has-dropdown{ position:relative }
+    .has-dropdown .dropdown{
+      display:none; position:absolute; top:100%; left:0; background:#fff;
+      border:1px solid #e5e7eb; border-radius:.8rem; padding:.5rem;
+      list-style:none; min-width:260px
+    }
+    .has-dropdown .dropdown a{
+      display:block; padding:.4rem .6rem; color:var(--ink); text-decoration:none; border-radius:.4rem
+    }
+    .has-dropdown .dropdown a:hover{ background:#f5f5f5 }
 
-    nav{ position: sticky; top:0; z-index:50; background:var(--nav); border-bottom:1px solid #dbcbb7; display:flex; justify-content:center; gap:1rem; padding:.75rem 1rem; flex-wrap:wrap; }
-    nav a{ text-decoration:none; color:var(--ink); font-weight:700; padding:.4rem .7rem; border-radius:.5rem; }
-    nav a:hover{background: var(--gold); color: var(--ink)}
-    nav a.active{background: var(--brand); color:#fff}
+    /* Hero */
+    .hero{background:linear-gradient(180deg,var(--bg),#ffffff); padding:64px 0}
+    .hero h1{font-family:'Playfair Display',serif; font-size:clamp(30px,5vw,56px); margin:0 0 12px 0}
+    .hero p{max-width:760px; color:var(--muted); margin:0}
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+    .cta{display:inline-block; background:var(--rust); color:#fff; padding:12px 16px; border-radius:10px; font-weight:700}
+    .cta.secondary{background:var(--brand)}
+    .cta:hover{background:var(--gold); color:var(--ink)}
 
-    .section{padding:2.25rem 1rem; max-width:1000px; margin:auto}
-    .section h2{font-size:clamp(1.5rem,2.2vw,2rem); margin:.25rem 0 1rem}
-    .lead{font-size:1.1rem; line-height:1.7}
+    /* Quick-access pill buttons */
+    .ppc-button-bar{display:flex; flex-wrap:wrap; gap:.6rem; margin:16px 0}
+    .pillbtn{display:inline-block; background:var(--nav); color:var(--ink); padding:.55rem .9rem; border-radius:999px; font-weight:700; text-decoration:none; border:1px solid var(--border)}
+    .pillbtn:hover{background:var(--gold); color:var(--ink)}
+    .pillbtn.primary{background:var(--rust); color:#fff; border-color:transparent}
+    .pillbtn.primary:hover{background:var(--gold); color:var(--ink)}
 
-    .cards{display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:1rem}
-    .card{background:var(--card); padding:1rem; border-radius:1rem; box-shadow:0 2px 6px rgba(0,0,0,.06)}
+    /* Sections */
+    .section{padding:56px 0}
+    .section h2{font-family:'Playfair Display',serif; font-size:clamp(24px,3.2vw,40px); margin:0 0 10px}
+    .lead{color:var(--muted); max-width:800px}
 
-    .testimonial{background:var(--card); border-left:4px solid var(--rust); padding:1rem; margin:1rem 0; box-shadow:0 2px 4px rgba(0,0,0,.06)}
-    .testimonial cite{display:block; margin-top:.5rem; font-style:italic; color:var(--muted)}
+    .grid{display:grid; gap:20px}
+    @media(min-width:860px){ .grid.cols-3{grid-template-columns:repeat(3,1fr)} .grid.cols-2{grid-template-columns:repeat(2,1fr)} }
+    .card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:18px}
 
-    .people{display:flex; gap:2rem; flex-wrap:wrap; justify-content:center; align-items:center}
-    .person{text-align:center; max-width:300px}
-    .person img{width:100%; border-radius:50%; object-fit:cover}
-
-    .muted{color:var(--muted)}
-
-    footer{background: var(--brand); color:#fff; text-align:center; padding:2rem 1rem; margin-top:2rem}
-    footer img.logo{max-width:140px; margin-bottom:.5rem}
-    footer a{color:#fff; text-decoration:none}
-    .social{display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap; margin-top:.5rem}
-
-    img{max-width:100%; height:auto}
-    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+    /* Footer */
+    footer{background:#1b1a1a; color:#eee}
+    footer a{color:#eee; text-decoration:underline}
+    .footer-inner{display:flex; flex-wrap:wrap; gap:24px; justify-content:space-between; padding:22px 0}
   </style>
+
+  <script>
+    // Simple dropdown behavior for nav
+    document.addEventListener('DOMContentLoaded', function(){
+      const parent = document.querySelector('.has-dropdown');
+      if(parent){
+        const menu = parent.querySelector('.dropdown');
+        parent.addEventListener('mouseenter', ()=> menu.style.display='block');
+        parent.addEventListener('mouseleave', ()=> menu.style.display='none');
+      }
+    });
+  </script>
 </head>
 <body>
-  <header id="top">
-    <h1>THE PLATEAU PUBLISHING CO.</h1>
-    <p>Locally rooted. Plateau proud.</p>
-    <div class="cta-row">
-      <a class="btn" href="#advertise">Advertise</a>
-      <a class="btn alt" href="#contact">Contact</a>
+
+  <!-- Top Navigation -->
+  <nav id="site-nav" aria-label="Primary">
+    <a href="/#about">About</a>
+    <a href="/#magazines">Magazines</a>
+    <a href="/#advertise">Advertise</a>
+
+    <a href="/services/branding.html">Branding</a>
+    <a href="/services/sponsorships.html">Sponsorships</a>
+
+    <span class="has-dropdown">
+      <a href="/services/digital-campaigns.html">Digital Campaigns ▾</a>
+      <ul class="dropdown">
+        <li><a href="/services/ppc-search.html">PPC & Search (Lead Gen)</a></li>
+        <li><a href="/services/digital-campaigns.html#facebook">Facebook & Instagram Ads</a></li>
+        <li><a href="/services/digital-campaigns.html#display">Display (Google/Bing/Apple)</a></li>
+        <li><a href="/services/online-listings.html">Online Listings</a></li>
+        <li><a href="/services/reviews-reputation.html">Reviews & Reputation</a></li>
+        <li><a href="/services/websites-seo.html">Websites & SEO</a></li>
+      </ul>
+    </span>
+
+    <a href="/digital/pricing.html">Pricing</a>
+    <a href="/digital/contact.html" class="btn">Free Audit</a>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <h1>Print Trust + Digital Results</h1>
+      <p>
+        Plateau Publishing Co. pairs community magazine sponsorships that build recognition
+        with performance campaigns that capture and convert — PPC/Search, Meta Lead Ads, and Display retargeting.
+      </p>
+      <div class="cta-row">
+        <a class="cta" href="/digital/pricing.html">See Digital Packages</a>
+        <a class="cta secondary" href="/digital/contact.html">Get a Free Audit</a>
+      </div>
+
+      <!-- Quick-access buttons -->
+      <div class="ppc-button-bar">
+        <a class="pillbtn" href="/#about">About</a>
+        <a class="pillbtn" href="/#magazines">Magazines</a>
+        <a class="pillbtn" href="/services/digital-campaigns.html">Digital Campaigns</a>
+        <a class="pillbtn" href="/services/ppc-search.html">Lead Generation (PPC/Search)</a>
+        <a class="pillbtn" href="/digital/pricing.html">Pricing</a>
+        <a class="pillbtn primary" href="/digital/contact.html">Free Audit</a>
+      </div>
     </div>
   </header>
 
-  <div class="selector" aria-label="Select magazine edition">
-    <label for="edition-select">Choose your edition:</label>
-    <select id="edition-select" aria-label="Edition select">
-      <option value="https://www.bestversionmedia.com/magazines/enumclawliving" selected>Enumclaw Living Edition</option>
-      <option value="https://www.bestversionmedia.com/magazines/bonneylakeliving">Bonney Lake Living Edition</option>
-    </select>
-    <button class="btn" id="go-edition" type="button" aria-label="Go to selected edition">Go</button>
-  </div>
-
-  <nav id="site-nav" aria-label="Primary">
-    <a href="#about">About</a>
-    <a href="#magazines">Magazines</a>
-    <a href="#advertise">Advertise</a>
-    <a href="#publishers">Publishers</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <section class="section" id="about">
-    <h2>About Us</h2>
-    <p class="lead">
-      The Plateau Publishing Co. is your community-rooted source for connecting the people and stories of Enumclaw, Bonney Lake, and the greater Plateau.
-      We’re proudly sharing stories that matter to our neighbors.
-    </p>
-  </section>
-
-  <section class="section" id="magazines">
-    <h2>Our Magazines</h2>
-    <div class="cards">
-      <div class="card">
-        <h3 style="margin-top:.25rem">Enumclaw Living</h3>
-        <p>Monthly stories, local profiles, events, and features celebrating life in Enumclaw.</p>
-        <p><a class="btn" href="https://www.bestversionmedia.com/magazines/enumclawliving" target="_blank" rel="noopener">View Edition</a></p>
-      </div>
-      <div class="card">
-        <h3 style="margin-top:.25rem">Bonney Lake Living</h3>
-        <p>Community spotlights, small-business features, and outdoor life around Bonney Lake.</p>
-        <p><a class="btn" href="https://www.bestversionmedia.com/magazines/bonneylakeliving" target="_blank" rel="noopener">View Edition</a></p>
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>About Plateau Publishing Co.</h2>
+      <p class="lead">
+        We help local businesses grow with a full-funnel approach: impressions-based print branding for trust,
+        and lead-generation campaigns for immediate ROI.
+      </p>
+      <div class="grid cols-3" style="margin-top:14px">
+        <div class="card">
+          <strong>Community Trust</strong><br/>
+          Magazine sponsorships in Enumclaw & Bonney Lake build recognition and credibility.
+        </div>
+        <div class="card">
+          <strong>Lead Generation</strong><br/>
+          Google/Bing Search, Meta Lead Ads, and Display retargeting with conversion tracking.
+        </div>
+        <div class="card">
+          <strong>Web & SEO</strong><br/>
+          Conversion-focused landing pages, local SEO, listings, and reputation management.
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="advertise">
-    <h2>Marketing & Sponsorship</h2>
-    <p class="lead">
-      Reach your neighbors through a blend of targeted print + digital marketing. We offer opportunities for authentic brand connection,
-      content sponsorship, and featured local storytelling — tailored for the small-town feel Enumclaw and Bonney Lake love.
-    </p>
-    <ul class="lead">
-      <li>Community-based and locally operated</li>
-      <li>Trusted voices and stories from Enumclaw & Bonney Lake residents</li>
-      <li>Print + digital exposure for your business</li>
-      <li>Designed for long-term brand loyalty</li>
-    </ul>
-    <p><a class="btn" href="#contact" aria-label="Request Media Kit via contact form">Request Media Kit</a></p>
-  </section>
-
-  <section class="section" id="publishers" aria-labelledby="pub-title">
-    <h2 id="pub-title">Meet the Publishers</h2>
-    <div class="people">
-      <div class="person">
-        <img src="/assets/img/katie.jpeg" alt="Portrait of Publisher Katie Morris" loading="lazy" decoding="async" />
-        <p><strong>Katie Morris</strong><br><span class="muted">Publisher</span></p>
-      </div>
-      <div class="person">
-        <img src="/assets/img/casey.jpeg" alt="Portrait of Publisher Casey Morris" loading="lazy" decoding="async" />
-        <p><strong>Casey Morris</strong><br><span class="muted">Publisher</span></p>
+  <!-- Magazines -->
+  <section id="magazines" class="section" style="background:#fff">
+    <div class="container">
+      <h2>Our Magazines</h2>
+      <p class="lead">Hyper-local reach with premium placements and community storytelling.</p>
+      <div class="grid cols-2" style="margin-top:14px">
+        <div class="card">
+          <strong>Enumclaw Living</strong><br/>
+          Trusted, recurring visibility with neighborhood engagement.
+        </div>
+        <div class="card">
+          <strong>Bonney Lake Living</strong><br/>
+          Consistent impressions across high-value local households.
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="testimonials">
-    <h2>Community Testimonials</h2>
-    <div class="testimonial">
-      <p>“The Enumclaw Living Magazine has helped our business connect with the community in a meaningful way. We’ve seen real results!”</p>
-      <cite>– Lisa M., Small Business Owner</cite>
-    </div>
-    <div class="testimonial">
-      <p>“I love reading stories about people I actually know. It feels like our town is finally being seen.”</p>
-      <cite>– Tom R., Enumclaw Resident</cite>
-    </div>
-    <div class="testimonial">
-      <p>“Our sponsorship with Bonney Lake Living has brought us more local visibility than any social ad campaign we’ve tried.”</p>
-      <cite>– Sara T., Marketing Director</cite>
+  <!-- Advertise -->
+  <section id="advertise" class="section">
+    <div class="container">
+      <h2>Advertise & Grow</h2>
+      <p class="lead">
+        Bundle your print sponsorship with PPC/Search and Meta Lead Ads to generate leads now —
+        while your brand presence compounds over time.
+      </p>
+      <div class="cta-row">
+        <a class="cta" href="/services/ppc-search.html">Explore Lead Gen (PPC/Search)</a>
+        <a class="cta secondary" href="/digital/contact.html">Request Your Free Audit</a>
+      </div>
     </div>
   </section>
 
-  <section class="section" id="contact" aria-labelledby="contact-title">
-    <h2 id="contact-title">Contact Us</h2>
-    <p>Interested in sponsorships or contributing a story idea? We’d love to hear from you.</p>
-
-    <p>
-      <strong>Email:</strong> <a href="mailto:caseymorris@bestversionmedia.com">caseymorris@bestversionmedia.com</a><br />
-      <strong>Phone:</strong> <a href="tel:12064061869">(206) 406-1869</a>
-    </p>
-
-    <form class="card" action="https://formsubmit.co/caseymorris@bestversionmedia.com" method="POST">
-      <input type="hidden" name="_subject" value="Plateau Publishing — New Inquiry" />
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_template" value="table" />
-
-      <label for="name"><strong>Name</strong></label>
-      <input id="name" name="name" required style="width:100%;padding:.65rem;border:1px solid #ddd;border-radius:.5rem;margin:.35rem 0 1rem" />
-
-      <label for="business"><strong>Business Name</strong></label>
-      <input id="business" name="business" style="width:100%;padding:.65rem;border:1px solid #ddd;border-radius:.5rem;margin:.35rem 0 1rem" />
-
-      <label for="phone"><strong>Phone Number</strong></label>
-      <input id="phone" type="tel" name="phone" style="width:100%;padding:.65rem;border:1px solid #ddd;border-radius:.5rem;margin:.35rem 0 1rem" />
-
-      <label for="email"><strong>Email</strong></label>
-      <input id="email" type="email" name="email" required style="width:100%;padding:.65rem;border:1px solid #ddd;border-radius:.5rem;margin:.35rem 0 1rem" />
-
-      <label for="message"><strong>Message</strong></label>
-      <textarea id="message" name="message" rows="5" required style="width:100%;padding:.65rem;border:1px solid #ddd;border-radius:.5rem;margin:.35rem 0 1rem"></textarea>
-
-      <button class="btn" type="submit">Send Message</button>
-    </form>
-
-    <p class="muted" style="margin-top:.75rem">Prefer email? Write us directly at <a href="mailto:caseymorris@bestversionmedia.com">caseymorris@bestversionmedia.com</a>.</p>
-  </section>
-
+  <!-- Footer -->
   <footer>
-    <picture>
-      <source srcset="/assets/img/logo-white.webp" type="image/webp">
-      <img src="/assets/img/whiteppclogo.png" alt="The Plateau Publishing Co. logo" class="logo" />
-    </picture>
-    <p>© 2025 The Plateau Publishing Co. | Enumclaw, WA</p>
-    <div class="social" aria-label="Social links">
-      <a href="https://www.facebook.com/EnumclawLiving" target="_blank" rel="noopener" aria-label="Facebook - Enumclaw Living">Facebook (Enumclaw)</a>
-      <a href="https://www.instagram.com/enumclawliving" target="_blank" rel="noopener" aria-label="Instagram - Enumclaw Living">Instagram (Enumclaw)</a>
-      <a href="https://www.facebook.com/BonneyLakeLiving" target="_blank" rel="noopener" aria-label="Facebook - Bonney Lake Living">Facebook (Bonney Lake)</a>
-      <a href="https://www.instagram.com/bonneylakeliving" target="_blank" rel="noopener" aria-label="Instagram - Bonney Lake Living">Instagram (Bonney Lake)</a>
+    <div class="container footer-inner">
+      <div>
+        <div>© 2025 Plateau Publishing Co.</div>
+        <div>Enumclaw & Bonney Lake, WA</div>
+      </div>
+      <div>
+        <div>Phone: <a href="tel:+12064061869">(206) 406-1869</a></div>
+        <div>Email: <a href="mailto:caseymorris@bestversionmedia.com">caseymorris@bestversionmedia.com</a></div>
+      </div>
     </div>
   </footer>
 
-  <script>
-    document.getElementById('go-edition').addEventListener('click', function(){
-      const sel = document.getElementById('edition-select'); if(sel && sel.value) window.location.href = sel.value;
-    });
-    const sections = [...document.querySelectorAll('section.section')];
-    const navLinks = [...document.querySelectorAll('#site-nav a')];
-    const setActive = id => navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
-    const io = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting) setActive(e.target.id); }); }, { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 });
-    sections.forEach(s => io.observe(s));
-  </script>
 </body>
 </html>
