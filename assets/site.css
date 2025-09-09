@@ -102,3 +102,8 @@ footer a{color:#eee;text-decoration:underline}
   }
   .floating-contacts .floating-cta.secondary{ background:#1f2937; } /* dark gray for secondary */
 }
+
+/* Footer contact styles */
+footer .contact-footer { color:#fff; font-size:.92rem; }
+footer .contact-footer a { color:#fff; text-decoration: underline; }
+footer .footer-brand a { color:#fff; text-decoration: underline; }
