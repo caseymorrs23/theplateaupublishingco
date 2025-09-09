@@ -54,43 +54,96 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
   
+
 <section class="section">
   <div class="container">
     <h1>Request a Free Marketing Audit</h1>
     <p class="lead">Tell us about your goals and budget. We’ll keep your core plan intact and add lead gen only if it fits.</p>
-    <form class="form" id="audit" method="POST" action="https://formsubmit.co/caseymorris@bestversionmedia.com" style="margin-top:16px">
+
+    <div class="card" style="margin:12px 0;padding:16px">
+      <strong>Casey &amp; Katie Morris — Publishers</strong>
+      <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:8px">
+        <a class="cta" href="tel:+12064061869"><img class="icon" src="/assets/icons/phone.svg" alt="Phone"/>Call Katie (206) 406-1869</a>
+        <a class="cta secondary" href="tel:+12534477102"><img class="icon" src="/assets/icons/phone.svg" alt="Phone"/>Call Office (253) 447-7102</a>
+        <a class="cta secondary" href="mailto:katiemorris@bestversionmedia.com"><img class="icon" src="/assets/icons/mail.svg" alt="Email"/>Email Katie</a>
+        <a class="cta secondary" href="mailto:caseymorris@bestversionmedia.com"><img class="icon" src="/assets/icons/mail.svg" alt="Email"/>Email Casey</a>
+      </div>
+    </div>
+
+    <!-- Audit Form -->
+    <form class="form" id="audit" method="POST" action="https://formsubmit.co/caseymorris@bestversionmedia.com" style="margin-top:8px">
       <input type="hidden" name="_subject" value="New Marketing Audit Request — Plateau Publishing Co.">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://theplateaupublishingco.com/thank-you.html">
-      <label for="name">Name</label>
-      <input id="name" name="Name" required>
-      <label for="business">Business</label>
-      <input id="business" name="Business">
-      <label for="phone">Phone</label>
-      <input id="phone" name="Phone">
-      <label for="email">Email</label>
-      <input id="email" type="email" name="Email" required>
-      <label for="budget">Monthly Ad Budget</label>
-      <select id="budget" name="Budget">
-        <option value="">Select...</option>
-        <option value="500-1500">$500–$1,500</option>
-        <option value="1500-5000">$1,500–$5,000</option>
-        <option value="5000-15000">$5,000–$15,000</option>
-        <option value="15000+">$15,000+</option>
-      </select>
-      <label for="message">Goals / Notes</label>
-      <textarea id="message" name="Notes" rows="6"></textarea>
-      <div class="cta-row"><button class="cta" type="submit">Request Free Audit</button></div>
+
+      <div class="form-grid">
+        <div class="half">
+          <label for="name">Name</label>
+          <input id="name" name="Name" required>
+        </div>
+        <div class="half">
+          <label for="business">Business</label>
+          <input id="business" name="Business">
+        </div>
+        <div class="third">
+          <label for="phone">Phone</label>
+          <input id="phone" name="Phone">
+        </div>
+        <div class="third">
+          <label for="email">Email</label>
+          <input id="email" type="email" name="Email" required>
+        </div>
+        <div class="third">
+          <label for="budget">Monthly Ad Budget</label>
+          <select id="budget" name="Budget">
+            <option value="">Select...</option>
+            <option value="500-1500">$500–$1,500</option>
+            <option value="1500-5000">$1,500–$5,000</option>
+            <option value="5000-15000">$5,000–$15,000</option>
+            <option value="15000+">$15,000+</option>
+          </select>
+        </div>
+        <div class="full">
+          <label for="message">Goals / Notes</label>
+          <textarea id="message" name="Notes" rows="6"></textarea>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <button class="cta" type="submit">Request Free Audit</button>
+      </div>
+    </form>
+
+    <hr style="margin:28px 0;border:0;border-top:1px solid var(--border)"/>
+
+    <!-- Contact Us Form -->
+    <h2>Contact Us</h2>
+    <p class="lead">Prefer a quick note? Use this form and we’ll reply shortly.</p>
+    <form class="form" id="contact-us" method="POST" action="https://formsubmit.co/caseymorris@bestversionmedia.com" style="margin-top:8px">
+      <input type="hidden" name="_subject" value="Contact Message — Plateau Publishing Co.">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://theplateaupublishingco.com/thank-you.html">
+
+      <div class="form-grid">
+        <div class="half">
+          <label for="cname">Name</label>
+          <input id="cname" name="Name" required>
+        </div>
+        <div class="half">
+          <label for="cemail">Email</label>
+          <input id="cemail" type="email" name="Email" required>
+        </div>
+        <div class="full">
+          <label for="cmsg">Message</label>
+          <textarea id="cmsg" name="Message" rows="6" required></textarea>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <button class="cta secondary" type="submit">Send Message</button>
+      </div>
     </form>
   </div>
 </section>
-
-  <footer>
-    <div class="container footer-inner">
-      <div>© 2025 Plateau Publishing Co. — Katie & Casey Morris</div>
-      <div><a href="https://theplateaupublishingco.com">theplateaupublishingco.com</a></div>
-    </div>
-  </footer>
-</body>
-</html>
