@@ -112,6 +112,38 @@ document.addEventListener('DOMContentLoaded', function(){
   </div>
 </section>
 
+ <!-- Contact Us Form -->
+    <h2>Contact Us</h2>
+    <p class="lead">Prefer a quick note? Use this form and we’ll reply shortly.</p>
+    <form class="form" id="contact-us" method="POST" action="https://formsubmit.co/caseymorris@bestversionmedia.com" style="margin-top:8px">
+      <input type="hidden" name="_subject" value="Contact Message — Plateau Publishing Co.">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://theplateaupublishingco.com/thank-you.html">
+
+      <div class="form-grid">
+        <div class="half">
+          <label for="cname">Name</label>
+          <input id="cname" name="Name" required>
+        </div>
+        <div class="half">
+          <label for="cemail">Email</label>
+          <input id="cemail" type="email" name="Email" required>
+        </div>
+        <div class="full">
+          <label for="cmsg">Message</label>
+          <textarea id="cmsg" name="Message" rows="6" required></textarea>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <button class="cta secondary" type="submit">Send Message</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+  
   <footer>
     <div class="container footer-inner">
       <div>© 2025 Plateau Publishing Co. — Katie & Casey Morris</div>
