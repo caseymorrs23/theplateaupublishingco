@@ -102,3 +102,11 @@ footer a{color:#eee;text-decoration:underline}
   }
   .floating-contacts .floating-cta.secondary{ background:#1f2937; } /* dark gray for secondary */
 }
+
+
+
+/* Media Kit hero */
+.mk-figure { margin:20px 0 10px; }
+.mk-hero { width:100%; height:auto; display:block; border-radius:10px; box-shadow:0 8px 30px rgba(0,0,0,.12); }
+.mk-caption { font-size:.95rem; opacity:.8; margin-top:8px; }
+.mk-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:16px; }
