@@ -1,0 +1,255 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Plateau Map Advertising Agreement</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/site.css" />
+</head>
+<body>
+<nav id="site-nav" aria-label="Primary">
+  <a href="/#about">About</a>
+  <a href="/print/index.html">Print</a>
+  <a href="/digital/bundles.html">Digital</a>
+  <a href="/maps/advertising-agreement.html">Map Agreement</a>
+  <a href="/services/online-presence.html">Online Presence</a>
+  <a href="/digital/lead-gen.html">Lead Generation</a>
+  <a href="/services/websites-seo.html">Websites</a>
+  <a href="/services/logos.html">Logos</a>
+  <span class="has-dropdown">
+    <a href="/services/seo.html">SEO ▾</a>
+    <ul class="dropdown">
+      <li><a href="/services/seo.html#technical">Technical SEO</a></li>
+      <li><a href="/services/seo.html#local">Local SEO</a></li>
+      <li><a href="/services/seo.html#content">Content & Conversion</a></li>
+      <li><a href="/services/seo.html#packages">Packages</a></li>
+    </ul>
+  </span>
+  <a href="/reviews/index.html">Reviews</a>
+  <a href="/media-kit.html">Media Kit</a>
+  <a href="/digital/contact.html" class="btn">Free Audit</a>
+</nav>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const parents=document.querySelectorAll('.has-dropdown');
+  parents.forEach(p=>{
+    const m=p.querySelector('.dropdown');
+    function show(){ m.style.display='block'; position(); }
+    function hide(){ m.style.display='none'; }
+    function position(){
+      const rect=m.getBoundingClientRect();
+      if(rect.right>window.innerWidth){ m.style.left='auto'; m.style.right='0'; } else { m.style.left='0'; m.style.right='auto'; }
+    }
+    p.addEventListener('mouseenter',show); p.addEventListener('mouseleave',hide);
+    window.addEventListener('resize',()=>{ if(m.style.display==='block') position(); });
+  });
+  const path=window.location.pathname.replace(/\/$/, '');
+  document.querySelectorAll('#site-nav a[href]').forEach(a=>{
+    const href=a.getAttribute('href').replace(/\/$/,''); if(href===path) a.classList.add('active-link');
+  });
+});
+</script>
+
+<header class="hero" style="padding:36px 0 24px">
+  <div class="container">
+    <h1>Plateau Map Advertising Agreement</h1>
+    <p class="lead">Use this form to capture advertiser information, invoice details, and a typed signature. After submission, a copy can be emailed to both parties and logged to Google Sheets.</p>
+  </div>
+</header>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="card form">
+      <form id="agreementForm">
+        <div class="form-grid">
+          <div class="half">
+            <label for="contactName">Contact Name</label>
+            <input id="contactName" name="contactName" required>
+          </div>
+          <div class="half">
+            <label for="businessName">Business Name</label>
+            <input id="businessName" name="businessName" required>
+          </div>
+          <div class="half">
+            <label for="email">Business Email</label>
+            <input id="email" name="email" type="email" required>
+          </div>
+          <div class="half">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" required>
+          </div>
+          <div class="half">
+            <label for="website">Website / Social</label>
+            <input id="website" name="website">
+          </div>
+          <div class="half">
+            <label for="billingAddress">Billing Address</label>
+            <input id="billingAddress" name="billingAddress">
+          </div>
+          <div class="third">
+            <label for="mapEdition">Map / Edition</label>
+            <input id="mapEdition" name="mapEdition" value="Plateau Community Map 2026">
+          </div>
+          <div class="third">
+            <label for="adSize">Ad Size</label>
+            <select id="adSize" name="adSize" required>
+              <option value="">Select one</option>
+              <option>1 Block</option>
+              <option>2 Block</option>
+              <option>3 Block</option>
+              <option>4 Block</option>
+              <option>Premium Placement</option>
+              <option>Custom</option>
+            </select>
+          </div>
+          <div class="third">
+            <label for="category">Business Category</label>
+            <input id="category" name="category">
+          </div>
+
+          <div class="third">
+            <label for="invoiceNumber">Invoice Number</label>
+            <input id="invoiceNumber" name="invoiceNumber" placeholder="Leave blank to auto-generate">
+          </div>
+          <div class="third">
+            <label for="invoiceDate">Invoice Date</label>
+            <input id="invoiceDate" name="invoiceDate" type="date">
+          </div>
+          <div class="third">
+            <label for="dueDate">Due Date</label>
+            <input id="dueDate" name="dueDate" type="date">
+          </div>
+          <div class="third">
+            <label for="totalAmount">Total Amount</label>
+            <input id="totalAmount" name="totalAmount" type="number" min="0" step="0.01" placeholder="1000.00" required>
+          </div>
+          <div class="third">
+            <label for="depositAmount">Deposit Due Now</label>
+            <input id="depositAmount" name="depositAmount" type="number" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="third">
+            <label for="balanceAmount">Balance Remaining</label>
+            <input id="balanceAmount" name="balanceAmount" type="number" min="0" step="0.01" placeholder="0.00">
+          </div>
+
+          <div class="full">
+            <label for="packageDetails">Package / Placement Details</label>
+            <textarea id="packageDetails" name="packageDetails" placeholder="Example: 1-block ad on Plateau Community Map, one year placement, business listing, backlink, and app inclusion." required></textarea>
+          </div>
+
+          <div class="full card" style="background:#fffaf4">
+            <h3 style="margin-top:0">Agreement Terms</h3>
+            <p>By signing below, Advertiser agrees to purchase the package described above from Plateau Publishing Co. for the stated amount. Unless otherwise noted in writing:</p>
+            <ul>
+              <li>Placement term is one map edition / one year.</li>
+              <li>Advertiser is responsible for providing final logo, ad copy, and contact information in time for production.</li>
+              <li>Plateau Publishing Co. may make minor layout adjustments needed for production consistency.</li>
+              <li>Payment is due per the invoice terms above. Work may be held until payment or deposit is received.</li>
+              <li>Because ad space is limited and reserved, signed agreements are non-cancelable once artwork and placement are approved unless both parties agree otherwise in writing.</li>
+              <li>This typed signature is intended to serve as an electronic acknowledgment of the agreement.</li>
+            </ul>
+          </div>
+
+          <div class="half">
+            <label for="advertiserSignature">Advertiser Typed Signature</label>
+            <input id="advertiserSignature" name="advertiserSignature" placeholder="Type full legal name" required>
+          </div>
+          <div class="half">
+            <label for="signatureDate">Signature Date</label>
+            <input id="signatureDate" name="signatureDate" type="date" required>
+          </div>
+          <div class="half">
+            <label for="plateauRep">Plateau Representative</label>
+            <input id="plateauRep" name="plateauRep" value="Katie or Casey Morris">
+          </div>
+          <div class="half">
+            <label for="adminEmail">Internal Copy Email</label>
+            <input id="adminEmail" name="adminEmail" type="email" value="katiemorris@bestversionmedia.com">
+          </div>
+          <div class="full">
+            <label for="notes">Notes / Special Terms</label>
+            <textarea id="notes" name="notes" placeholder="Optional notes, discount terms, production notes, or custom instructions."></textarea>
+          </div>
+          <div class="full">
+            <label style="display:flex; gap:10px; align-items:flex-start; font-weight:500">
+              <input type="checkbox" name="consent" value="I agree" required style="width:auto; margin-top:4px">
+              <span>I confirm that the information above is accurate and I agree to the pricing, placement, and payment terms described in this agreement.</span>
+            </label>
+          </div>
+        </div>
+        <div class="cta-row">
+          <button class="cta" type="submit">Submit Agreement</button>
+          <a class="cta secondary" href="/assets/MediaKit.pdf" target="_blank" rel="noopener">View Media Kit</a>
+        </div>
+        <p id="formStatus" class="lead" style="margin-top:14px"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div>© 2025 Plateau Publishing Co. — Katie & Casey Morris</div>
+    <div><a href="https://theplateaupublishingco.com">theplateaupublishingco.com</a></div>
+    <div><a href="tel:+12064061869" class="floating-cta"><img class="icon" src="/assets/icons/phone.svg" alt="Phone"/>Give us a call (206) 406-1869</a></div>
+    <div><a href="mailto:katiemorris@bestversionmedia.com" class="floating-cta secondary"><img class="icon" src="/assets/icons/mail.svg" alt="Email"/>Send us an email</a></div>
+  </div>
+</footer>
+
+<script>
+const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
+const form = document.getElementById('agreementForm');
+const statusEl = document.getElementById('formStatus');
+const invoiceDate = document.getElementById('invoiceDate');
+const signatureDate = document.getElementById('signatureDate');
+const dueDate = document.getElementById('dueDate');
+const totalAmount = document.getElementById('totalAmount');
+const depositAmount = document.getElementById('depositAmount');
+const balanceAmount = document.getElementById('balanceAmount');
+
+const today = new Date().toISOString().slice(0,10);
+if (!invoiceDate.value) invoiceDate.value = today;
+if (!signatureDate.value) signatureDate.value = today;
+if (!dueDate.value) dueDate.value = today;
+
+function updateBalance() {
+  const total = parseFloat(totalAmount.value || 0);
+  const deposit = parseFloat(depositAmount.value || 0);
+  const balance = Math.max(total - deposit, 0);
+  balanceAmount.value = balance.toFixed(2);
+}
+
+totalAmount.addEventListener('input', updateBalance);
+depositAmount.addEventListener('input', updateBalance);
+
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  statusEl.textContent = 'Submitting agreement...';
+  const data = Object.fromEntries(new FormData(form).entries());
+  const body = new URLSearchParams(data);
+
+  try {
+    const response = await fetch(SCRIPT_URL, {
+      method: 'POST',
+      body
+    });
+    const result = await response.json();
+    if (result.status === 'success') {
+      statusEl.textContent = 'Agreement submitted. Copies have been emailed and the record has been logged.';
+      form.reset();
+      invoiceDate.value = today;
+      signatureDate.value = today;
+      dueDate.value = today;
+    } else {
+      statusEl.textContent = result.message || 'There was a problem submitting the agreement.';
+    }
+  } catch (err) {
+    console.error(err);
+    statusEl.textContent = 'Submission failed. Confirm your Apps Script URL is live and public.';
+  }
+});
+</script>
+</body>
+</html>

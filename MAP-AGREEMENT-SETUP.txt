@@ -1,0 +1,30 @@
+
+PLATEAU MAP AGREEMENT SETUP
+
+1) Open your Google Sheet:
+   https://docs.google.com/spreadsheets/d/1kqDyR-yA8fDWGRLKasRk0zzkjF-emD9kH-nKtL3uDrw/edit?gid=0#gid=0
+
+2) In Google Sheets go to Extensions > Apps Script.
+
+3) Paste in the contents of plateau-map-agreement.gs and save.
+
+4) Deploy > New deployment > Web app.
+   - Execute as: Me
+   - Who has access: Anyone
+
+5) Copy the web app URL.
+
+6) In /maps/advertising-agreement.html replace:
+   YOUR_GOOGLE_APPS_SCRIPT_URL
+   with your live web app URL.
+
+7) Optional: change the default internal copy email in the HTML and Apps Script if needed.
+
+What this setup does:
+- Captures advertiser agreement details from the website
+- Logs every submission to a Google Sheet tab called Map Agreements
+- Auto-generates an invoice number if one is not entered
+- Emails a copy of the agreement to the advertiser and your internal email address
+
+Important note:
+This is a practical typed-signature workflow. If you need deeper legal e-sign compliance, audit trails, or payment collection at signing, use DocuSign, PandaDoc, Jotform Sign, or Stripe checkout in the next phase.
