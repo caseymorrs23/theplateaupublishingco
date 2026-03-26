@@ -13,9 +13,28 @@
     .muted{color:var(--muted)}
     .fine-print{font-size:.95rem;color:var(--muted)}
     .agreement-box{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px}
-    .sigline{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    @media(max-width:860px){.sigline{grid-template-columns:1fr}}
     .status{margin-top:12px;font-weight:700}
+    .counter-wrap{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+    .counter-badge{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:999px;padding:10px 16px;font-weight:700}
+    .counter-dot{width:10px;height:10px;border-radius:50%;background:var(--rust)}
+    .terms-list h3{margin:18px 0 6px}
+    .terms-list p{margin:0 0 12px}
+    .invoice-preview{background:#fcfaf7;border:1px solid var(--border);border-radius:14px;padding:18px}
+    .invoice-preview h3{margin-top:0}
+    .invoice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px}
+    .invoice-grid .row{display:flex;justify-content:space-between;gap:16px;border-bottom:1px dashed var(--border);padding:6px 0}
+    .invoice-grid .row strong{font-weight:700}
+    .invoice-grid .row span:last-child{text-align:right}
+    .invoice-grid .row.total{font-size:1.05rem;border-bottom:none;padding-top:10px}
+    .invoice-grid .row.total strong{font-size:1.1rem}
+    .invoice-notes{margin-top:10px}
+    .form-grid .full{grid-column:1 / -1}
+    .form-grid .half{grid-column:span 1}
+    .form-grid .third{grid-column:span 1}
+    .pay-note{font-weight:700}
+    @media(max-width:860px){
+      .invoice-grid{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
@@ -81,9 +100,16 @@ document.addEventListener('DOMContentLoaded', function(){
 
 <section class="section">
   <div class="container">
-    <div class="notice">
-      <strong>Limited inventory:</strong> this edition is capped at 100 total advertising placements. Space is offered on a first signed, first paid basis.
+    <div class="notice counter-wrap">
+      <div>
+        <strong>Limited inventory:</strong> this edition is capped at 100 total advertising placements. Space is offered on a first signed, first paid basis.
+      </div>
+      <div class="counter-badge" aria-live="polite">
+        <span class="counter-dot" aria-hidden="true"></span>
+        <span><span id="spotsRemaining">99</span> of <span id="spotsTotal">100</span> spots remaining</span>
+      </div>
     </div>
+    <p class="fine-print" style="margin-top:10px">You can update the live counter in the page script as agreements are signed.</p>
   </div>
 </section>
 
@@ -107,8 +133,12 @@ document.addEventListener('DOMContentLoaded', function(){
         </ul>
       </div>
       <div class="card pricing-card">
-        <strong>Questions?</strong>
-        <p class="muted">Email <a href="mailto:hello@theplateaupublishingco.com">hello@theplateaupublishingco.com</a> and we will send details, examples, and availability.</p>
+        <strong>Production timeline</strong>
+        <ul class="checklist">
+          <li>Agreements, materials, and deposit due by June 5, 2026</li>
+          <li>Design and layout begin after the June 5 deadline</li>
+          <li>Production and distribution begin on or about July 1, 2026</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -149,29 +179,55 @@ document.addEventListener('DOMContentLoaded', function(){
         </div>
 
         <div class="third">
-          <label for="adSize">Ad size / placement</label>
+          <label for="adSize">Ad size</label>
           <select id="adSize" name="adSize" required>
-            <option value="">Select</option>
-            <option>Single Space</option>
-            <option>Two Space</option>
-            <option>Three Space</option>
-            <option>Four Space</option>
-            <option>Premium Placement</option>
+            <option value="" data-price="0">Select</option>
+            <option value="Single Ad (1x1)" data-price="1000">Single Ad (1x1) — $1,000</option>
+            <option value="Double Ad (2x size)" data-price="2000">Double Ad (2x size) — $2,000</option>
           </select>
+        </div>
+
+        <div class="third">
+          <label for="paymentMethod">Payment method</label>
+          <select id="paymentMethod" name="paymentMethod" required>
+            <option value="ACH / Check">ACH / Check (No Fee)</option>
+            <option value="Credit / Debit Card">Credit / Debit Card (+3.5%)</option>
+          </select>
+        </div>
+
+        <div class="third">
+          <label style="display:flex;gap:10px;align-items:flex-start;font-weight:600;margin-top:34px">
+            <input type="checkbox" id="mapLocation" name="mapLocation" value="Yes" style="width:auto;margin-top:4px">
+            <span>Add location on map (+$500)</span>
+          </label>
+        </div>
+
+        <div class="third">
+          <label for="subtotal">Subtotal</label>
+          <input id="subtotal" name="subtotal" readonly>
+        </div>
+        <div class="third">
+          <label for="processingFee">Processing fee</label>
+          <input id="processingFee" name="processingFee" readonly>
         </div>
         <div class="third">
           <label for="total">Total amount</label>
-          <input id="total" name="total" placeholder="1000">
-        </div>
-        <div class="third">
-          <label for="deposit">Deposit amount</label>
-          <input id="deposit" name="deposit" placeholder="500">
+          <input id="total" name="total" readonly>
         </div>
 
+        <div class="third">
+          <label for="deposit">Deposit amount (50%)</label>
+          <input id="deposit" name="deposit" readonly>
+        </div>
+        <div class="third">
+          <label for="balance">Balance due</label>
+          <input id="balance" name="balance" readonly>
+        </div>
         <div class="third">
           <label for="invoiceNumber">Invoice number</label>
           <input id="invoiceNumber" name="invoiceNumber" placeholder="PP-1001">
         </div>
+
         <div class="third">
           <label for="invoiceDate">Invoice date</label>
           <input id="invoiceDate" name="invoiceDate" type="date">
@@ -179,6 +235,10 @@ document.addEventListener('DOMContentLoaded', function(){
         <div class="third">
           <label for="dueDate">Due date</label>
           <input id="dueDate" name="dueDate" type="date">
+        </div>
+        <div class="third">
+          <label for="spotsReserved">Spots reserved to date</label>
+          <input id="spotsReserved" name="spotsReserved" readonly>
         </div>
 
         <div class="full">
@@ -196,13 +256,71 @@ document.addEventListener('DOMContentLoaded', function(){
           <textarea id="notes" name="notes" placeholder="Anything else we should know before sending the agreement and invoice."></textarea>
         </div>
 
-        <div class="full">
+        <div class="full invoice-preview">
+          <h3>Invoice Preview</h3>
+          <div class="invoice-grid">
+            <div class="row"><strong>Advertiser</strong><span id="previewBusiness">—</span></div>
+            <div class="row"><strong>Contact</strong><span id="previewContact">—</span></div>
+            <div class="row"><strong>Package</strong><span id="previewPackage">—</span></div>
+            <div class="row"><strong>Payment Method</strong><span id="previewPayment">—</span></div>
+            <div class="row"><strong>Invoice Number</strong><span id="previewInvoiceNumber">—</span></div>
+            <div class="row"><strong>Invoice Date</strong><span id="previewInvoiceDate">—</span></div>
+            <div class="row"><strong>Due Date</strong><span id="previewDueDate">—</span></div>
+            <div class="row"><strong>Subtotal</strong><span id="previewSubtotal">$0</span></div>
+            <div class="row"><strong>Processing Fee</strong><span id="previewFee">$0</span></div>
+            <div class="row total"><strong>Total</strong><span id="previewTotal">$0</span></div>
+            <div class="row"><strong>Deposit Due</strong><span id="previewDeposit">$0</span></div>
+            <div class="row"><strong>Balance Due</strong><span id="previewBalance">$0</span></div>
+          </div>
+          <div class="invoice-notes fine-print">
+            <p><span class="pay-note">Payment note:</span> ACH or check preferred. A 3.5% processing fee applies to credit or debit card payments.</p>
+            <p><span class="pay-note">Timeline:</span> All agreements, materials, and payment or deposit must be received by June 5, 2026. Design begins after that deadline. Production and distribution are scheduled to begin on or about July 1, 2026.</p>
+          </div>
+          <input type="hidden" id="invoiceSummary" name="invoiceSummary">
+        </div>
+
+        <div class="full terms-list">
           <div class="agreement-box" style="padding:14px">
-            <strong>Inventory Limit</strong>
+            <h3>Advertising Package</h3>
+            <p class="fine-print">Advertiser is purchasing advertising placement in the current edition of the Plateau Map, including print placement and any related digital listing or online promotion described in this agreement. Placement size, pricing, invoice details, and package details selected in this form are incorporated into this agreement.</p>
+
+            <h3>Production Timeline and Deadlines</h3>
+            <p class="fine-print">All signed advertising agreements, required ad materials, and payment or deposit must be received no later than June 5, 2026. Ad design and layout begin after the June 5, 2026 deadline. Final production and distribution are scheduled to begin on or about July 1, 2026. If Advertiser fails to provide required materials, approvals, or payment by the stated deadline, Plateau Publishing Co. may delay, omit, reuse prior approved materials, or cancel placement without waiving amounts due under this agreement.</p>
+
+            <h3>Inventory Limit</h3>
             <p class="fine-print">Advertiser understands that the Plateau Map has a maximum of 100 advertising placements for the current edition. Space is limited and availability is not guaranteed until this agreement is signed and payment or deposit is received.</p>
-            <label style="display:flex;gap:10px;align-items:flex-start;font-weight:600">
+
+            <h3>Payment Terms</h3>
+            <p class="fine-print">Advertiser agrees to pay the total amount listed in this agreement, including any deposit and remaining balance, by the due date shown. If a deposit is listed, placement may be held upon receipt of the deposit, but final production is contingent on timely payment of all remaining amounts due. Payments may be made by ACH, check, or card. A 3.5% processing fee applies to credit or debit card payments. No fee applies to ACH or check payments.</p>
+
+            <h3>Ad Materials and Approval</h3>
+            <p class="fine-print">Advertiser is responsible for providing accurate business information, logos, contact details, website links, and any requested design materials by the deadline above. Proofs or draft designs will be considered approved unless Advertiser submits requested changes in writing within 3 business days after delivery of the proof.</p>
+
+            <h3>No Exclusivity</h3>
+            <p class="fine-print">This agreement does not grant category exclusivity unless specifically stated in writing in the package details or special terms section.</p>
+
+            <h3>Content Permissions and Errors</h3>
+            <p class="fine-print">Advertiser represents that it owns or has permission to use all submitted logos, trademarks, photographs, text, and other materials. If an advertisement contains a material error caused solely by Plateau Publishing Co., Advertiser’s sole remedy will be a reasonable correction, credit, or comparable make-good determined by Plateau Publishing Co.</p>
+
+            <h3>No Guarantee of Results</h3>
+            <p class="fine-print">Plateau Publishing Co. does not guarantee leads, sales, calls, web traffic, or any particular advertising result from placement in the Plateau Map.</p>
+
+            <h3>Cancellation and Limitation of Liability</h3>
+            <p class="fine-print">Because ad inventory is limited and production is scheduled in advance, this agreement is binding once signed. After signature, Advertiser may not cancel except with written consent from Plateau Publishing Co. Plateau Publishing Co. will not be liable for indirect, incidental, special, or consequential damages arising from this agreement or the advertisement.</p>
+
+            <label style="display:flex;gap:10px;align-items:flex-start;font-weight:600;margin-top:14px">
               <input type="checkbox" name="inventoryAcknowledgment" required style="width:auto;margin-top:4px">
               <span>I understand that advertising space is limited to 100 total placements and my space is not reserved until this agreement is signed and payment or deposit is received.</span>
+            </label>
+
+            <label style="display:flex;gap:10px;align-items:flex-start;font-weight:600;margin-top:14px">
+              <input type="checkbox" name="timelineAcknowledgment" required style="width:auto;margin-top:4px">
+              <span>I understand that all agreements, ad materials, and payment or deposit must be received by June 5, 2026, and that production and distribution are scheduled to begin on or about July 1, 2026.</span>
+            </label>
+
+            <label style="display:flex;gap:10px;align-items:flex-start;font-weight:600;margin-top:14px">
+              <input type="checkbox" name="termsAcknowledgment" required style="width:auto;margin-top:4px">
+              <span>I have read and agree to the Terms and Conditions of this advertising agreement.</span>
             </label>
           </div>
         </div>
@@ -242,25 +360,133 @@ document.addEventListener('DOMContentLoaded', function(){
 
 <script>
 (function(){
+  const TOTAL_SPOTS = 100;
+  const RESERVED_SPOTS = 1;
+
   const form = document.getElementById('mapAgreementForm');
   const status = document.getElementById('formStatus');
   const dateField = document.getElementById('signatureDate');
-  if (dateField && !dateField.value) {
-    dateField.value = new Date().toISOString().slice(0,10);
+  const invoiceDateField = document.getElementById('invoiceDate');
+  const dueDateField = document.getElementById('dueDate');
+  const adSize = document.getElementById('adSize');
+  const mapLocation = document.getElementById('mapLocation');
+  const paymentMethod = document.getElementById('paymentMethod');
+  const subtotal = document.getElementById('subtotal');
+  const processingFee = document.getElementById('processingFee');
+  const total = document.getElementById('total');
+  const deposit = document.getElementById('deposit');
+  const balance = document.getElementById('balance');
+  const spotsRemaining = document.getElementById('spotsRemaining');
+  const spotsTotal = document.getElementById('spotsTotal');
+  const spotsReserved = document.getElementById('spotsReserved');
+  const invoiceSummary = document.getElementById('invoiceSummary');
+  const businessName = document.getElementById('businessName');
+  const contactName = document.getElementById('contactName');
+  const invoiceNumber = document.getElementById('invoiceNumber');
+
+  function money(n){
+    return '$' + Number(n || 0).toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0});
   }
+
+  function todayISO(){
+    return new Date().toISOString().slice(0,10);
+  }
+
+  function dueISO(days){
+    const d = new Date();
+    d.setDate(d.getDate() + days);
+    return d.toISOString().slice(0,10);
+  }
+
+  function setDefaults(){
+    if (dateField && !dateField.value) dateField.value = todayISO();
+    if (invoiceDateField && !invoiceDateField.value) invoiceDateField.value = todayISO();
+    if (dueDateField && !dueDateField.value) dueDateField.value = dueISO(7);
+    if (spotsRemaining) spotsRemaining.textContent = String(TOTAL_SPOTS - RESERVED_SPOTS);
+    if (spotsTotal) spotsTotal.textContent = String(TOTAL_SPOTS);
+    if (spotsReserved) spotsReserved.value = String(RESERVED_SPOTS);
+  }
+
+  function calculatePricing(){
+    let base = parseInt(adSize.options[adSize.selectedIndex]?.dataset.price || '0', 10);
+    let packageLabel = adSize.value || 'Not selected';
+
+    if (mapLocation.checked) {
+      base += 500;
+      packageLabel += packageLabel === 'Not selected' ? 'Map location feature' : ' + Map Location';
+    }
+
+    let fee = 0;
+    if (paymentMethod.value === 'Credit / Debit Card') {
+      fee = Math.round(base * 0.035);
+    }
+
+    const grandTotal = base + fee;
+    const depositAmount = Math.round(grandTotal * 0.5);
+    const balanceAmount = grandTotal - depositAmount;
+
+    subtotal.value = base ? String(base) : '';
+    processingFee.value = fee ? String(fee) : '0';
+    total.value = grandTotal ? String(grandTotal) : '';
+    deposit.value = grandTotal ? String(depositAmount) : '';
+    balance.value = grandTotal ? String(balanceAmount) : '';
+
+    document.getElementById('previewBusiness').textContent = businessName.value || '—';
+    document.getElementById('previewContact').textContent = contactName.value || '—';
+    document.getElementById('previewPackage').textContent = packageLabel;
+    document.getElementById('previewPayment').textContent = paymentMethod.value || '—';
+    document.getElementById('previewInvoiceNumber').textContent = invoiceNumber.value || '—';
+    document.getElementById('previewInvoiceDate').textContent = invoiceDateField.value || '—';
+    document.getElementById('previewDueDate').textContent = dueDateField.value || '—';
+    document.getElementById('previewSubtotal').textContent = money(base);
+    document.getElementById('previewFee').textContent = money(fee);
+    document.getElementById('previewTotal').textContent = money(grandTotal);
+    document.getElementById('previewDeposit').textContent = money(depositAmount);
+    document.getElementById('previewBalance').textContent = money(balanceAmount);
+
+    invoiceSummary.value =
+`Plateau Map Invoice Summary
+Advertiser: ${businessName.value || ''}
+Contact: ${contactName.value || ''}
+Package: ${packageLabel}
+Payment Method: ${paymentMethod.value || ''}
+Invoice Number: ${invoiceNumber.value || ''}
+Invoice Date: ${invoiceDateField.value || ''}
+Due Date: ${dueDateField.value || ''}
+Subtotal: ${money(base)}
+Processing Fee: ${money(fee)}
+Total: ${money(grandTotal)}
+Deposit Due: ${money(depositAmount)}
+Balance Due: ${money(balanceAmount)}
+Timeline: Agreements, materials, and payment or deposit due by June 5, 2026. Production and distribution begin on or about July 1, 2026.
+Availability: ${TOTAL_SPOTS - RESERVED_SPOTS} of ${TOTAL_SPOTS} spots remaining.`;
+  }
+
+  setDefaults();
+  calculatePricing();
+
+  [adSize, mapLocation, paymentMethod, businessName, contactName, invoiceNumber, invoiceDateField, dueDateField]
+    .forEach(el => el && el.addEventListener('input', calculatePricing));
+  [adSize, mapLocation, paymentMethod, invoiceDateField, dueDateField]
+    .forEach(el => el && el.addEventListener('change', calculatePricing));
 
   form.addEventListener('submit', async function(e){
     e.preventDefault();
     status.textContent = 'Submitting...';
 
+    calculatePricing();
+
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
     data.emailCopy = formData.get('emailCopy') ? 'Yes' : 'No';
     data.inventoryAcknowledgment = formData.get('inventoryAcknowledgment') ? 'Yes' : 'No';
+    data.timelineAcknowledgment = formData.get('timelineAcknowledgment') ? 'Yes' : 'No';
+    data.termsAcknowledgment = formData.get('termsAcknowledgment') ? 'Yes' : 'No';
     data.source = 'Plateau Map Agreement Form';
+    data.spotsRemaining = String(TOTAL_SPOTS - RESERVED_SPOTS);
 
     try {
-      const response = await fetch('YOUR_GOOGLE_APPS_SCRIPT_URL', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbxRMNg0bm2gPsQ7kLqp5gBj2Ki2gXq4cg7QgV4t2urOQyVpMB4ChCXRNCHdL74SB8Lr/exec', {
         method: 'POST',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(data)
@@ -276,9 +502,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
       status.textContent = 'Thank you. Your agreement request has been submitted.';
       form.reset();
-      if (dateField) {
-        dateField.value = new Date().toISOString().slice(0,10);
-      }
+      setDefaults();
+      calculatePricing();
     } catch (err) {
       console.error(err);
       status.textContent = 'There was an issue submitting the form. Please email hello@theplateaupublishingco.com.';
