@@ -4,73 +4,30 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Plateau Map | Reserve Your Spot</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/site.css" />
   <style>
-    .notice{background:#fff7ec;border:1px solid var(--border);border-left:5px solid var(--rust);padding:14px 16px;border-radius:12px}
-    .checklist{margin:0;padding-left:18px;color:var(--muted)}
-    .pricing-card strong{display:block;font-size:1.05rem;margin-bottom:6px}
-    .fine-print{font-size:.95rem;color:var(--muted)}
-    .agreement-box{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px}
+    .notice{background:#fff7ec;border:1px solid #d8c9b6;border-left:5px solid #9b5f3c;padding:14px 16px;border-radius:12px}
+    .agreement-box{background:#fff;border:1px solid #d8c9b6;border-radius:14px;padding:18px}
     .status{margin-top:12px;font-weight:700}
-    .field-hint{margin-top:-4px;margin-bottom:6px}
-    .payment-box{margin-top:18px;padding:16px;border:1px solid var(--border);border-radius:14px;background:#fff}
+    .field-hint{margin-top:-4px;margin-bottom:6px;color:#6a6258}
+    .payment-box{margin-top:18px;padding:16px;border:1px solid #d8c9b6;border-radius:14px;background:#fff}
+    .checklist{margin:0;padding-left:18px;color:#6a6258}
+    .pricing-card strong{display:block;font-size:1.05rem;margin-bottom:6px}
   </style>
 </head>
 <body>
-<nav id="site-nav" aria-label="Primary">
-  <a href="/#about">About</a>
-  <a href="/print/index.html">Print</a>
-  <a href="/digital/bundles.html">Digital</a>
-  <a href="/services/online-presence.html">Online Presence</a>
-  <a href="/digital/lead-gen.html">Lead Generation</a>
-  <a href="/services/websites-seo.html">Websites</a>
-  <a href="/services/logos.html">Logos</a>
-  <span class="has-dropdown">
-    <a href="/services/seo.html">SEO ▾</a>
-    <ul class="dropdown">
-      <li><a href="/services/seo.html#technical">Technical SEO</a></li>
-      <li><a href="/services/seo.html#local">Local SEO</a></li>
-      <li><a href="/services/seo.html#content">Content & Conversion</a></li>
-      <li><a href="/services/seo.html#packages">Packages</a></li>
-    </ul>
-  </span>
-  <a href="/reviews/index.html">Reviews</a>
-  <a href="/media-kit.html">Media Kit</a>
-  <a href="/digital/contact.html" class="btn">Free Audit</a>
-</nav>
-
-<header class="hero hero--image" style="background-image:url('/assets/hero-mtrainier-clean.png'), url('/assets/hero-mtrainier-clean.webp')">
-  <div class="overlay"></div>
+<section class="section" id="agreement" style="background:#fff">
   <div class="container">
-    <h1>Reserve Your Spot on the Plateau Map</h1>
-    <p class="lead">A high-visibility print and digital map for the Plateau community. Only 100 advertising spots are available for this edition.</p>
-    <div class="cta-row">
-      <a class="cta" href="#agreement">Complete Agreement</a>
-      <a class="cta secondary" href="mailto:hello@theplateaupublishingco.com">Email Questions</a>
-    </div>
-    <div class="pills">
-      <span class="pill">Annual Edition</span>
-      <span class="pill">Print + Digital</span>
-      <span class="pill">Only 100 Spots</span>
-      <span class="pill">First Signed, First Paid</span>
-    </div>
-  </div>
-</header>
+    <h1>Plateau Map Advertising Agreement</h1>
+    <p class="lead">Complete the agreement below. After submitting, the correct payment link will appear automatically.</p>
 
-<section class="section">
-  <div class="container">
-    <div class="notice">
-      <strong>Limited inventory:</strong> this edition is capped at 100 total advertising placements. Space is offered on a first signed, first paid basis.
+    <div class="notice" style="margin-bottom:16px">
+      <strong>Advertising options:</strong> Single square $1,000 · Double square $2,000 · Map add-on +$500 · 3.5% card fee added through payment link
     </div>
-  </div>
-</section>
 
-<section class="section" style="padding-top:0">
-  <div class="container">
-    <div class="grid cols-3">
+    <div class="grid cols-3" style="margin-bottom:18px">
       <div class="card pricing-card">
-        <strong>Advertising options</strong>
+        <strong>Ad options</strong>
         <ul class="checklist">
           <li>Single square: $1,000</li>
           <li>Double square: $2,000</li>
@@ -78,31 +35,27 @@
         </ul>
       </div>
       <div class="card pricing-card">
-        <strong>How it works</strong>
+        <strong>Payment options</strong>
         <ul class="checklist">
-          <li>Complete the agreement</li>
-          <li>Sign electronically</li>
-          <li>Pay using the payment link shown after submission</li>
+          <li>Pay in full</li>
+          <li>50% down</li>
         </ul>
       </div>
       <div class="card pricing-card">
-        <strong>Production timeline</strong>
+        <strong>Timeline</strong>
         <ul class="checklist">
-          <li>Agreement, materials, and payment due by June 5, 2026</li>
-          <li>Design begins after June 5</li>
-          <li>Production and distribution begin on or about July 1, 2026</li>
+          <li>Materials, agreement, and payment required to reserve</li>
+          <li>If the map sells out early, production may begin early</li>
+          <li>Please provide ad materials and information promptly</li>
         </ul>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="section" id="agreement" style="background:#fff">
-  <div class="container">
-    <h2>Advertising Agreement</h2>
-    <p class="lead">Complete the information below to reserve your placement and receive your agreement summary by email.</p>
+    <form id="mapAgreementForm" class="form agreement-box"
+      action="https://script.google.com/macros/s/AKfycbxB7IYVfzsyQeFqZ9lYhrYijiyhsppvbkv_mt1CbtMmCgiEYLOpbscav4hSP45203N-/exec"
+      method="POST"
+      target="submissionFrame">
 
-    <form id="mapAgreementForm" class="form agreement-box">
       <div class="form-grid">
         <div class="half">
           <label for="contactName">Contact name</label>
@@ -135,8 +88,17 @@
           </select>
         </div>
 
-        <div class="full">
-          <label style="display:flex;gap:10px;align-items:flex-start;font-weight:600">
+        <div class="half">
+          <label for="paymentPlan">Payment option</label>
+          <select id="paymentPlan" name="paymentPlan" required>
+            <option value="">Select</option>
+            <option value="Full Payment">Pay in full</option>
+            <option value="50% Down">50% down</option>
+          </select>
+        </div>
+
+        <div class="half">
+          <label style="display:flex;gap:10px;align-items:flex-start;font-weight:600;margin-top:28px">
             <input type="checkbox" id="mapLocation" name="mapLocation" value="Yes" style="width:auto;margin-top:4px">
             <span>Add location on map (+$500)</span>
           </label>
@@ -152,42 +114,43 @@
         </div>
 
         <div class="full">
-          <label for="notes">Ad design instructions</label>
-          <p class="fine-print field-hint">We can design the ad for you. Include your wording, offer, phone, website, logo notes, or color preferences.</p>
+          <label for="notes">Ad materials and design instructions</label>
+          <p class="field-hint">Please provide wording, phone, website, logo notes, offer details, colors, and any other information needed to build the ad. Prompt delivery helps keep your placement on schedule.</p>
           <textarea id="notes" name="notes" rows="6" placeholder="Business name:
 Phone:
 Website:
 Services:
-Offer (optional):
+Offer:
 Logo notes:
-Colors or wording to include:"></textarea>
+Colors or wording to include:
+Anything else needed for the ad:"></textarea>
         </div>
 
         <div class="full">
           <div class="agreement-box" style="padding:14px">
             <strong>Terms and Conditions</strong>
-            <p class="fine-print">
+            <p class="field-hint">
               Advertiser is reserving advertising placement in the current edition of the Plateau Map.
               Advertising options are single square for $1,000, double square for $2,000, and a map add-on for an additional $500.
-              A 3.5% card processing fee is added to payment totals through the payment link.
+              Payment may be made in full or with a 50% down payment option.
+              A 3.5% card processing fee is added through the payment link.
               Advertising space is limited to 100 total placements and is offered on a first signed, first paid basis.
               Space is not reserved until this agreement is signed and payment is received.
-              All signed agreements, ad materials, and payment must be received by June 5, 2026.
-              Ad design begins after that deadline.
-              Production and distribution are scheduled to begin on or about July 1, 2026.
-              Advertiser is responsible for providing accurate business information and requested ad content.
+              All signed agreements, ad materials, and payment must be received by June 5, 2026, unless the map sells out sooner, in which case production may begin earlier.
+              Advertiser understands it is important to provide materials, logos, wording, and business information promptly so the ad can be prepared on time.
+              Production and distribution are scheduled to begin on or about July 1, 2026, but may begin earlier if the edition sells out sooner.
               This agreement does not guarantee leads, calls, sales, or any specific advertising result.
             </p>
             <label style="display:flex;gap:10px;align-items:flex-start;font-weight:600">
-              <input type="checkbox" name="inventoryAcknowledgment" required style="width:auto;margin-top:4px">
-              <span>I understand that advertising space is limited to 100 total placements and is not reserved until this agreement is signed and payment is received.</span>
+              <input type="checkbox" name="inventoryAcknowledgment" value="Yes" required style="width:auto;margin-top:4px">
+              <span>I understand that advertising space is limited and is not reserved until this agreement is signed and payment is received.</span>
             </label>
             <label style="display:flex;gap:10px;align-items:flex-start;font-weight:600;margin-top:10px">
-              <input type="checkbox" name="timelineAcknowledgment" required style="width:auto;margin-top:4px">
-              <span>I understand that all agreements, ad materials, and payment must be received by June 5, 2026, and that production and distribution are scheduled to begin on or about July 1, 2026.</span>
+              <input type="checkbox" name="timelineAcknowledgment" value="Yes" required style="width:auto;margin-top:4px">
+              <span>I understand that if the map sells out sooner, production may begin earlier, and that I need to provide materials and business information promptly.</span>
             </label>
             <label style="display:flex;gap:10px;align-items:flex-start;font-weight:600;margin-top:10px">
-              <input type="checkbox" name="termsAcknowledgment" required style="width:auto;margin-top:4px">
+              <input type="checkbox" name="termsAcknowledgment" value="Yes" required style="width:auto;margin-top:4px">
               <span>I have read and agree to the terms and conditions of this advertising agreement.</span>
             </label>
           </div>
@@ -204,11 +167,15 @@ Colors or wording to include:"></textarea>
 
         <div class="full">
           <label style="display:flex;gap:10px;align-items:flex-start;font-weight:600">
-            <input type="checkbox" name="emailCopy" checked style="width:auto;margin-top:4px">
+            <input type="checkbox" name="emailCopy" value="Yes" checked style="width:auto;margin-top:4px">
             <span>Email a copy of this agreement summary to both parties.</span>
           </label>
         </div>
       </div>
+
+      <input type="hidden" id="packageDetails" name="packageDetails">
+      <input type="hidden" id="paymentLink" name="paymentLink">
+      <input type="hidden" name="source" value="Plateau Map">
 
       <div class="cta-row">
         <button type="submit" class="cta">Submit Agreement</button>
@@ -216,38 +183,12 @@ Colors or wording to include:"></textarea>
       <div id="formStatus" class="status" aria-live="polite"></div>
       <div id="paymentBox" class="payment-box" style="display:none"></div>
     </form>
+
+    <iframe name="submissionFrame" id="submissionFrame" style="display:none"></iframe>
   </div>
 </section>
 
-<footer>
-  <div class="container footer-inner">
-    <div>© 2025 Plateau Publishing Co. — Katie & Casey Morris</div>
-    <div><a href="https://theplateaupublishingco.com">theplateaupublishingco.com</a></div>
-    <div><a href="mailto:hello@theplateaupublishingco.com">hello@theplateaupublishingco.com</a></div>
-  </div>
-</footer>
-
 <script>
-document.addEventListener('DOMContentLoaded', function(){
-  const parents=document.querySelectorAll('.has-dropdown');
-  parents.forEach(p=>{
-    const m=p.querySelector('.dropdown');
-    if (!m) return;
-    function show(){ m.style.display='block'; position(); }
-    function hide(){ m.style.display='none'; }
-    function position(){
-      const rect=m.getBoundingClientRect();
-      if(rect.right>window.innerWidth){ m.style.left='auto'; m.style.right='0'; } else { m.style.left='0'; m.style.right='auto'; }
-    }
-    p.addEventListener('mouseenter',show); p.addEventListener('mouseleave',hide);
-    window.addEventListener('resize',()=>{ if(m.style.display==='block') position(); });
-  });
-  const path=window.location.pathname.replace(/\/$/, '');
-  document.querySelectorAll('#site-nav a[href]').forEach(a=>{
-    const href=a.getAttribute('href').replace(/\/$/,''); if(href===path) a.classList.add('active-link');
-  });
-});
-
 (function(){
   const form = document.getElementById('mapAgreementForm');
   const status = document.getElementById('formStatus');
@@ -271,61 +212,52 @@ document.addEventListener('DOMContentLoaded', function(){
   function getPaymentLink() {
     const ad = document.getElementById('adSize').value;
     const map = document.getElementById('mapLocation').checked;
-    if (ad === "Double Ad" && !map) return "https://swipesimple.com/links/lnk_b20584f668c44db69a7f1dd49f7afd85";
-    if (ad === "Double Ad" && map) return "https://swipesimple.com/links/lnk_043e47cd2c6a141131db600819f62713";
-    if (ad === "Single Ad" && !map) return "https://swipesimple.com/links/lnk_d23e2bca5d5ab0d108e7954b3d468382";
-    if (ad === "Single Ad" && map) return "https://swipesimple.com/links/lnk_875e0b06e34ac8ba73811d099166fe20";
+    const plan = document.getElementById('paymentPlan').value;
+
+    if (ad === "Double Ad" && !map && plan === "Full Payment") return "https://swipesimple.com/links/lnk_b20584f668c44db69a7f1dd49f7afd85";
+    if (ad === "Double Ad" && !map && plan === "50% Down") return "https://swipesimple.com/links/lnk_59c4b105652263967ddff0ab2f56b402";
+    if (ad === "Double Ad" && map && plan === "Full Payment") return "https://swipesimple.com/links/lnk_043e47cd2c6a141131db600819f62713";
+    if (ad === "Double Ad" && map && plan === "50% Down") return "https://swipesimple.com/links/lnk_cdd7ebb63533d442bed497320ab0932f";
+    if (ad === "Single Ad" && !map && plan === "Full Payment") return "https://swipesimple.com/links/lnk_d23e2bca5d5ab0d108e7954b3d468382";
+    if (ad === "Single Ad" && !map && plan === "50% Down") return "https://swipesimple.com/links/lnk_507f26cdc1254c556ebfdb19b6cffbf7";
+    if (ad === "Single Ad" && map && plan === "Full Payment") return "https://swipesimple.com/links/lnk_875e0b06e34ac8ba73811d099166fe20";
+    if (ad === "Single Ad" && map && plan === "50% Down") return "https://swipesimple.com/links/lnk_af9ed3eed333f55d4e2c279f427a1209";
     return "";
   }
 
   function getSelectionLabel() {
     const ad = document.getElementById('adSize').value;
     const map = document.getElementById('mapLocation').checked;
-    if (!ad) return "";
-    return map ? `${ad} + Map Add-On` : ad;
+    const plan = document.getElementById('paymentPlan').value;
+    if (!ad || !plan) return "";
+    const base = map ? `${ad} + Map Add-On` : ad;
+    return `${base} - ${plan}`;
   }
 
   setDefaultDates();
 
-  form.addEventListener('submit', async function(e){
-    e.preventDefault();
+  form.addEventListener('submit', function(){
+    const link = getPaymentLink();
+    const pkg = getSelectionLabel();
+
+    document.getElementById('paymentLink').value = link;
+    document.getElementById('packageDetails').value = pkg;
+
     status.textContent = 'Submitting...';
     paymentBox.style.display = 'none';
     paymentBox.innerHTML = '';
 
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-
-    data.emailCopy = formData.get('emailCopy') ? 'Yes' : 'No';
-    data.inventoryAcknowledgment = formData.get('inventoryAcknowledgment') ? 'Yes' : 'No';
-    data.timelineAcknowledgment = formData.get('timelineAcknowledgment') ? 'Yes' : 'No';
-    data.termsAcknowledgment = formData.get('termsAcknowledgment') ? 'Yes' : 'No';
-    data.mapLocation = formData.get('mapLocation') ? 'Yes' : 'No';
-    data.source = 'Plateau Map';
-    data.paymentLink = getPaymentLink();
-    data.packageDetails = getSelectionLabel();
-
-    try {
-      await fetch('https://script.google.com/macros/s/AKfycbxB7IYVfzsyQeFqZ9lYhrYijiyhsppvbkv_mt1CbtMmCgiEYLOpbscav4hSP45203N-/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify(data)
-      });
-
+    setTimeout(function(){
       status.textContent = 'Agreement submitted.';
-      if (data.paymentLink) {
+      if (link) {
         paymentBox.style.display = 'block';
         paymentBox.innerHTML = `
           <strong>Next step: complete payment</strong>
-          <p class="fine-print">Your selected option is <strong>${data.packageDetails}</strong>. Click below to complete payment and secure your placement.</p>
-          <a href="${data.paymentLink}" target="_blank" rel="noopener" class="cta">Click here to complete payment</a>
+          <p class="field-hint">Your selected option is <strong>${pkg}</strong>. Click below to complete payment and secure your placement.</p>
+          <a href="${link}" target="_blank" rel="noopener" class="cta">Click here to complete payment</a>
         `;
       }
-    } catch (err) {
-      console.error(err);
-      status.textContent = 'There was an issue submitting the form. Please email hello@theplateaupublishingco.com.';
-    }
+    }, 800);
   });
 })();
 </script>
