@@ -374,7 +374,11 @@ Anything else needed for the ad:"></textarea>
     if (!inventoryCounter) return;
 
     try {
-      const res = await fetch(COUNTER_URL, { method: "GET" });
+      const res = await fetch(COUNTER_URL, {
+      method: "GET",
+      mode: "cors"
+      });
+      
       if (!res.ok) throw new Error("Counter request failed");
 
       const data = await res.json();
