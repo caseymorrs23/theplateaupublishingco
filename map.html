@@ -118,6 +118,10 @@ document.addEventListener('DOMContentLoaded', function(){
   <div class="container">
     <h2>Advertising Agreement and Invoice Request</h2>
     <p class="lead">Complete the information below to reserve your placement and receive your agreement and invoice by email. A copy can be sent to both parties automatically.</p>
+    <div class="notice" style="margin:16px 0">
+      <strong>Advertising options:</strong> Single Ad $1,000 &nbsp;|&nbsp; Double Ad $2,000 &nbsp;|&nbsp; Map Location Add-On $500<br>
+      <span class="fine-print">Payment options: Pay in Full Now or Half Now, Half in 30 Days.</span>
+    </div>
 
     <form id="mapAgreementForm" class="form agreement-box">
       <div class="form-grid">
@@ -149,25 +153,61 @@ document.addEventListener('DOMContentLoaded', function(){
         </div>
 
         <div class="third">
-          <label for="adSize">Ad size / placement</label>
+          <label for="adSize">Advertising option</label>
           <select id="adSize" name="adSize" required>
-            <option value="">Select</option>
-            <option>Single Space</option>
-            <option>Two Space</option>
-            <option>Three Space</option>
-            <option>Four Space</option>
-            <option>Premium Placement</option>
+            <option value="" data-price="0">Select</option>
+            <option value="Single Ad" data-price="1000">Single Ad - $1,000</option>
+            <option value="Double Ad" data-price="2000">Double Ad - $2,000</option>
+            <option value="Map Location Add-On Only" data-price="500">Map Location Add-On - $500</option>
           </select>
         </div>
         <div class="third">
-          <label for="total">Total amount</label>
-          <input id="total" name="total" placeholder="1000">
+          <label for="paymentPlan">Payment option</label>
+          <select id="paymentPlan" name="paymentPlan" required>
+            <option value="Full Payment">Pay in Full Now</option>
+            <option value="Half Now Half in 30 Days">Half Now, Half in 30 Days</option>
+          </select>
         </div>
         <div class="third">
-          <label for="deposit">Deposit amount</label>
-          <input id="deposit" name="deposit" placeholder="500">
+          <label for="paymentMethod">Payment method</label>
+          <select id="paymentMethod" name="paymentMethod" required>
+            <option value="ACH">ACH / Check (No Fee)</option>
+            <option value="Card">Credit / Debit Card (+3.5%)</option>
+          </select>
         </div>
 
+        <div class="third">
+          <label style="display:flex;gap:10px;align-items:flex-start;font-weight:600;margin-top:28px">
+            <input type="checkbox" id="mapLocation" name="mapLocation" value="Yes" style="width:auto;margin-top:4px">
+            <span>Add location on map (+$500)</span>
+          </label>
+        </div>
+        <div class="third">
+          <label for="subtotal">Subtotal</label>
+          <input id="subtotal" name="subtotal" readonly>
+        </div>
+        <div class="third">
+          <label for="processingFee">Processing fee</label>
+          <input id="processingFee" name="processingFee" readonly>
+        </div>
+
+        <div class="third">
+          <label for="total">Total amount</label>
+          <input id="total" name="total" readonly>
+        </div>
+        <div class="third">
+          <label for="deposit">Amount due now</label>
+          <input id="deposit" name="deposit" readonly>
+        </div>
+        <div class="third">
+          <label for="balance">Remaining balance</label>
+          <input id="balance" name="balance" readonly>
+        </div>
+
+        <div class="third">
+          <label for="spotsReserved">Spots reserved to date</label>
+          <input id="spotsReserved" name="spotsReserved" value="1">
+        </div>
         <div class="third">
           <label for="invoiceNumber">Invoice number</label>
           <input id="invoiceNumber" name="invoiceNumber" placeholder="PP-1001">
@@ -176,8 +216,9 @@ document.addEventListener('DOMContentLoaded', function(){
           <label for="invoiceDate">Invoice date</label>
           <input id="invoiceDate" name="invoiceDate" type="date">
         </div>
+
         <div class="third">
-          <label for="dueDate">Due date</label>
+          <label for="dueDate">Final payment due date</label>
           <input id="dueDate" name="dueDate" type="date">
         </div>
 
@@ -192,8 +233,8 @@ document.addEventListener('DOMContentLoaded', function(){
         </div>
 
         <div class="full">
-          <label for="notes">Additional notes</label>
-          <textarea id="notes" name="notes" placeholder="Anything else we should know before sending the agreement and invoice."></textarea>
+          <label for="notes">Ad design instructions</label>
+          <textarea id="notes" name="notes" placeholder="Please enter logo requests, wording, contact details, colors, offers, website links, and any other ad design instructions."></textarea>
         </div>
 
         <div class="full">
@@ -245,7 +286,7 @@ document.addEventListener('DOMContentLoaded', function(){
       <div class="cta-row">
         <button type="submit" class="cta">Reserve My Spot & Receive Invoice</button>
       </div>
-      <p class="fine-print">Most advertisers choose ACH or check to avoid the 3.5% processing fee.</p>
+      <p class="fine-print">Advertising options are Single Ad ($1,000), Double Ad ($2,000), and Map Location Add-On ($500). Most advertisers choose ACH or check to avoid the 3.5% processing fee.</p>
       <div id="formStatus" class="status" aria-live="polite"></div>
     </form>
   </div>
@@ -291,6 +332,8 @@ document.addEventListener('DOMContentLoaded', function(){
     const ad = document.getElementById('adSize');
     const location = document.getElementById('mapLocation');
     const payment = document.getElementById('paymentMethod');
+    const paymentPlan = document.getElementById('paymentPlan');
+    const dueDateField = document.getElementById('dueDate');
 
     let base = parseInt(ad?.options[ad.selectedIndex]?.dataset.price || 0, 10);
     if (location && location.checked) base += 500;
@@ -301,8 +344,25 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     const total = base + processing;
-    const deposit = Math.round(total * 0.5);
-    const balance = total - deposit;
+    let deposit = total;
+    let balance = 0;
+
+    if (paymentPlan && paymentPlan.value === 'Half Now Half in 30 Days') {
+      deposit = Math.round(total * 0.5);
+      balance = total - deposit;
+      if (invoiceDate && dueDateField && invoiceDate.value) {
+        const d = new Date(invoiceDate.value + 'T00:00:00');
+        d.setDate(d.getDate() + 30);
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        dueDateField.value = `${y}-${m}-${day}`;
+      }
+    } else {
+      if (invoiceDate && dueDateField) {
+        dueDateField.value = invoiceDate.value;
+      }
+    }
 
     const fields = {
       subtotal: base,
@@ -331,7 +391,7 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   }
 
-  ['adSize','mapLocation','paymentMethod'].forEach(id => {
+  ['adSize','mapLocation','paymentMethod','paymentPlan','invoiceDate'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.addEventListener('change', updatePricing);
   });
