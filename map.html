@@ -90,13 +90,20 @@
     </div>
   </header>
 
-  <section class="section">
-    <div class="container">
-      <div class="notice">
-        <strong>Limited inventory:</strong> this edition is capped at 100 total advertising placements. Space is offered on a first signed, first paid basis.
+<section class="section">
+  <div class="container">
+    <div class="notice">
+      <strong>Limited inventory:</strong> this edition is capped at 100 total advertising placements. Space is offered on a first signed, first paid basis.
+    </div>
+
+    <div class="agreement-box" style="margin-top:14px">
+      <strong style="display:block;margin-bottom:8px">Current availability</strong>
+      <div id="inventoryCounter" class="field-hint" style="margin:0">
+        Loading current availability...
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <section class="section" style="padding-top:0">
     <div class="container">
@@ -303,97 +310,128 @@ Anything else needed for the ad:"></textarea>
     </div>
   </footer>
 
-  <script>
-  (function(){
-    const form = document.getElementById('mapAgreementForm');
-    const status = document.getElementById('formStatus');
-    const paymentBox = document.getElementById('paymentBox');
-    const sigDate = document.getElementById('signatureDate');
-    const invoiceDate = document.getElementById('invoiceDate');
-    const frame = document.getElementById('submissionFrame');
+<script>
+(function(){
+  const form = document.getElementById('mapAgreementForm');
+  const status = document.getElementById('formStatus');
+  const paymentBox = document.getElementById('paymentBox');
+  const sigDate = document.getElementById('signatureDate');
+  const invoiceDate = document.getElementById('invoiceDate');
+  const frame = document.getElementById('submissionFrame');
+  const inventoryCounter = document.getElementById('inventoryCounter');
 
-    let submitting = false;
+  let submitting = false;
 
-    function fmtDate(d){
-      const y = d.getFullYear();
-      const m = String(d.getMonth() + 1).padStart(2, '0');
-      const day = String(d.getDate()).padStart(2, '0');
-      return `${y}-${m}-${day}`;
-    }
+  const TOTAL_UNITS = 100;
 
-    function setDefaultDates() {
-      const todayStr = fmtDate(new Date());
-      if (sigDate && !sigDate.value) sigDate.value = todayStr;
-      if (invoiceDate && !invoiceDate.value) invoiceDate.value = todayStr;
-    }
+  // Use your Apps Script web app URL here
+  const COUNTER_URL = "https://script.google.com/macros/s/AKfycbyE9DEI2KCqPj3powR0dorp37KfGt17AT33MvbdBf_8AsXEFfthB6Sr1JGWSQE6U2dQ/exec?mode=inventory";
 
-    function getPaymentLink() {
-      const ad = document.getElementById('adSize').value;
-      const map = document.getElementById('mapLocation').checked;
-      const plan = document.getElementById('paymentPlan').value;
+  function fmtDate(d){
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${y}-${m}-${day}`;
+  }
 
-      if (ad === "Double Ad" && !map && plan === "Full Payment") return "https://swipesimple.com/links/lnk_b20584f668c44db69a7f1dd49f7afd85";
-      if (ad === "Double Ad" && !map && plan === "50% Down") return "https://swipesimple.com/links/lnk_59c4b105652263967ddff0ab2f56b402";
-      if (ad === "Double Ad" && map && plan === "Full Payment") return "https://swipesimple.com/links/lnk_043e47cd2c6a141131db600819f62713";
-      if (ad === "Double Ad" && map && plan === "50% Down") return "https://swipesimple.com/links/lnk_cdd7ebb63533d442bed497320ab0932f";
-      if (ad === "Single Ad" && !map && plan === "Full Payment") return "https://swipesimple.com/links/lnk_d23e2bca5d5ab0d108e7954b3d468382";
-      if (ad === "Single Ad" && !map && plan === "50% Down") return "https://swipesimple.com/links/lnk_507f26cdc1254c556ebfdb19b6cffbf7";
-      if (ad === "Single Ad" && map && plan === "Full Payment") return "https://swipesimple.com/links/lnk_875e0b06e34ac8ba73811d099166fe20";
-      if (ad === "Single Ad" && map && plan === "50% Down") return "https://swipesimple.com/links/lnk_af9ed3eed333f55d4e2c279f427a1209";
-      return "";
-    }
+  function setDefaultDates() {
+    const todayStr = fmtDate(new Date());
+    if (sigDate && !sigDate.value) sigDate.value = todayStr;
+    if (invoiceDate && !invoiceDate.value) invoiceDate.value = todayStr;
+  }
 
-    function getSelectionLabel() {
-      const ad = document.getElementById('adSize').value;
-      const map = document.getElementById('mapLocation').checked;
-      const plan = document.getElementById('paymentPlan').value;
-      if (!ad || !plan) return "";
-      const base = map ? `${ad} + Map Add-On` : ad;
-      return `${base} - ${plan}`;
-    }
+  function getPaymentLink() {
+    const ad = document.getElementById('adSize').value;
+    const map = document.getElementById('mapLocation').checked;
+    const plan = document.getElementById('paymentPlan').value;
 
-    function resetFormForNextEntry() {
-      form.reset();
-      setDefaultDates();
-    }
+    if (ad === "Double Ad" && !map && plan === "Full Payment") return "https://swipesimple.com/links/lnk_b20584f668c44db69a7f1dd49f7afd85";
+    if (ad === "Double Ad" && !map && plan === "50% Down") return "https://swipesimple.com/links/lnk_59c4b105652263967ddff0ab2f56b402";
+    if (ad === "Double Ad" && map && plan === "Full Payment") return "https://swipesimple.com/links/lnk_043e47cd2c6a141131db600819f62713";
+    if (ad === "Double Ad" && map && plan === "50% Down") return "https://swipesimple.com/links/lnk_cdd7ebb63533d442bed497320ab0932f";
+    if (ad === "Single Ad" && !map && plan === "Full Payment") return "https://swipesimple.com/links/lnk_d23e2bca5d5ab0d108e7954b3d468382";
+    if (ad === "Single Ad" && !map && plan === "50% Down") return "https://swipesimple.com/links/lnk_507f26cdc1254c556ebfdb19b6cffbf7";
+    if (ad === "Single Ad" && map && plan === "Full Payment") return "https://swipesimple.com/links/lnk_875e0b06e34ac8ba73811d099166fe20";
+    if (ad === "Single Ad" && map && plan === "50% Down") return "https://swipesimple.com/links/lnk_af9ed3eed333f55d4e2c279f427a1209";
+    return "";
+  }
 
+  function getSelectionLabel() {
+    const ad = document.getElementById('adSize').value;
+    const map = document.getElementById('mapLocation').checked;
+    const plan = document.getElementById('paymentPlan').value;
+    if (!ad || !plan) return "";
+    const base = map ? `${ad} + Map Add-On` : ad;
+    return `${base} - ${plan}`;
+  }
+
+  function resetFormForNextEntry() {
+    form.reset();
     setDefaultDates();
+  }
 
-    form.addEventListener('submit', function(){
-      const link = getPaymentLink();
-      const pkg = getSelectionLabel();
+  async function loadInventoryCounter() {
+    if (!inventoryCounter) return;
 
-      document.getElementById('paymentLink').value = link;
-      document.getElementById('packageDetails').value = pkg;
+    try {
+      const res = await fetch(COUNTER_URL, { method: "GET" });
+      if (!res.ok) throw new Error("Counter request failed");
 
-      status.textContent = 'Submitting agreement...';
-      paymentBox.style.display = 'none';
-      paymentBox.innerHTML = '';
-      submitting = true;
-    });
+      const data = await res.json();
 
-    frame.addEventListener('load', function(){
-      if (!submitting) return;
+      const used = Number(data.usedUnits || 0);
+      const remaining = Number(data.remainingUnits || (TOTAL_UNITS - used));
+      const premiumRemaining = Number(data.premiumRemaining || 0);
+      const premiumTotal = Number(data.premiumTotal || 8);
 
-      submitting = false;
+      inventoryCounter.innerHTML = `
+        <strong>Only ${remaining} placements remaining</strong><br>
+        Premium placements remaining: ${premiumRemaining} of ${premiumTotal}
+      `;
+    } catch (err) {
+      inventoryCounter.textContent = "Availability updates are currently loading. Please contact us for current placement availability.";
+    }
+  }
 
-      const link = document.getElementById('paymentLink').value;
-      const pkg = document.getElementById('packageDetails').value;
+  setDefaultDates();
+  loadInventoryCounter();
 
-      status.textContent = 'Agreement submitted and recorded.';
+  form.addEventListener('submit', function(){
+    const link = getPaymentLink();
+    const pkg = getSelectionLabel();
 
-      if (link) {
-        paymentBox.style.display = 'block';
-        paymentBox.innerHTML = `
-          <strong>Next step: complete payment</strong>
-          <p class="field-hint">Your selected option is <strong>${pkg}</strong>. Click below to complete payment and secure your placement.</p>
-          <a href="${link}" target="_blank" rel="noopener" class="cta">Click here to complete payment</a>
-        `;
-      }
+    document.getElementById('paymentLink').value = link;
+    document.getElementById('packageDetails').value = pkg;
 
-      resetFormForNextEntry();
-    });
-  })();
-  </script>
-</body>
-</html>
+    status.textContent = 'Submitting agreement...';
+    paymentBox.style.display = 'none';
+    paymentBox.innerHTML = '';
+    submitting = true;
+  });
+
+  frame.addEventListener('load', function(){
+    if (!submitting) return;
+
+    submitting = false;
+
+    const link = document.getElementById('paymentLink').value;
+    const pkg = document.getElementById('packageDetails').value;
+
+    status.textContent = 'Agreement submitted and recorded.';
+
+    if (link) {
+      paymentBox.style.display = 'block';
+      paymentBox.innerHTML = `
+        <strong>Next step: complete payment</strong>
+        <p class="field-hint">Your selected option is <strong>${pkg}</strong>. Click below to complete payment and secure your placement.</p>
+        <a href="${link}" target="_blank" rel="noopener" class="cta">Click here to complete payment</a>
+      `;
+    }
+
+    // refresh counter after a submission
+    loadInventoryCounter();
+
+    resetFormForNextEntry();
+  });
+})();
+</script>
