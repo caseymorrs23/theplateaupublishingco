@@ -288,6 +288,7 @@ Anything else needed for the ad:"></textarea>
       </form>
 
       <iframe name="submissionFrame" id="submissionFrame" class="iframe-status"></iframe>
+      <iframe id="inventoryFrame" name="inventoryFrame" style="display:none;"></iframe>
     </div>
   </section>
 
@@ -370,32 +371,14 @@ Anything else needed for the ad:"></textarea>
     setDefaultDates();
   }
 
-  async function loadInventoryCounter() {
-    if (!inventoryCounter) return;
+function loadInventoryCounter() {
+  if (!inventoryCounter) return;
 
-    try {
-      const res = await fetch(COUNTER_URL, {
-      method: "GET",
-      mode: "cors"
-      });
-      
-      if (!res.ok) throw new Error("Counter request failed");
+  inventoryCounter.textContent = "Loading current availability...";
 
-      const data = await res.json();
-
-      const used = Number(data.usedUnits || 0);
-      const remaining = Number(data.remainingUnits || (TOTAL_UNITS - used));
-      const premiumRemaining = Number(data.premiumRemaining || 0);
-      const premiumTotal = Number(data.premiumTotal || 8);
-
-      inventoryCounter.innerHTML = `
-        <strong>Only ${remaining} placements remaining</strong><br>
-        Premium placements remaining: ${premiumRemaining} of ${premiumTotal}
-      `;
-    } catch (err) {
-      inventoryCounter.textContent = "Availability updates are currently loading. Please contact us for current placement availability.";
-    }
-  }
+  const frame = document.getElementById("inventoryFrame");
+  frame.src = COUNTER_URL + "&t=" + Date.now();
+}
 
   setDefaultDates();
   loadInventoryCounter();
@@ -437,5 +420,20 @@ Anything else needed for the ad:"></textarea>
 
     resetFormForNextEntry();
   });
+window.addEventListener("message", function(event) {
+  if (!event.data) return;
+
+  if (event.data.type === "inventoryUpdate") {
+    const remaining = Number(event.data.remainingUnits || 0);
+    const premiumRemaining = Number(event.data.premiumRemaining || 0);
+    const premiumTotal = Number(event.data.premiumTotal || 8);
+
+    inventoryCounter.innerHTML = `
+      <strong>Only ${remaining} placements remaining</strong><br>
+      Premium placements remaining: ${premiumRemaining} of ${premiumTotal}
+    `;
+  }
+});
+  
 })();
 </script>
