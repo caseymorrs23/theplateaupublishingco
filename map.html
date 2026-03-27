@@ -96,12 +96,17 @@
       <strong>Limited inventory:</strong> this edition is capped at 100 total advertising placements. Space is offered on a first signed, first paid basis.
     </div>
 
-    <div class="agreement-box" style="margin-top:14px">
-      <strong style="display:block;margin-bottom:8px">Current availability</strong>
-      <div id="inventoryCounter" class="field-hint" style="margin:0">
-      <strong>Only 95 placements remaining</strong><br>
-      Premium placements remaining: 6 of 8
-      </div>
+    <div id="inventoryCounter" style="
+      background:#f8f5f0;
+      border:1px solid #e3ddd2;
+      padding:16px;
+      border-radius:10px;
+      margin-top:10px;
+    ">
+    <strong style="font-size:18px;">Only 95 placements remaining</strong><br>
+    <span style="color:#666;">Premium placements remaining: 6 of 8</span>
+  </div>
+    
     </div>
   </div>
 </section>
@@ -289,7 +294,7 @@ Anything else needed for the ad:"></textarea>
       </form>
 
       <iframe name="submissionFrame" id="submissionFrame" class="iframe-status"></iframe>
-      <iframe id="inventoryFrame" name="inventoryFrame" style="display:none;"></iframe>
+      
     </div>
   </section>
 
@@ -326,8 +331,7 @@ Anything else needed for the ad:"></textarea>
 
   const TOTAL_UNITS = 100;
 
-  // Use your Apps Script web app URL here
-  const COUNTER_URL = "https://script.google.com/macros/s/AKfycbyMElEfdUpS1hgW8Yvu0GxX_KeOrPJWG8Wcq11HnsavemF6fKY19ClXz9p4806mI9OP/exec?mode=inventory";
+
 
   function fmtDate(d){
     const y = d.getFullYear();
