@@ -99,7 +99,8 @@
     <div class="agreement-box" style="margin-top:14px">
       <strong style="display:block;margin-bottom:8px">Current availability</strong>
       <div id="inventoryCounter" class="field-hint" style="margin:0">
-        Loading current availability...
+      <strong>Only 95 placements remaining</strong><br>
+      Premium placements remaining: 6 of 8
       </div>
     </div>
   </div>
@@ -381,7 +382,7 @@ function loadInventoryCounter() {
 }
 
   setDefaultDates();
-  loadInventoryCounter();
+  
 
   form.addEventListener('submit', function(){
     const link = getPaymentLink();
@@ -416,24 +417,11 @@ function loadInventoryCounter() {
     }
 
     // refresh counter after a submission
-    loadInventoryCounter();
+    
 
     resetFormForNextEntry();
   });
-window.addEventListener("message", function(event) {
-  if (!event.data) return;
 
-  if (event.data.type === "inventoryUpdate") {
-    const remaining = Number(event.data.remainingUnits || 0);
-    const premiumRemaining = Number(event.data.premiumRemaining || 0);
-    const premiumTotal = Number(event.data.premiumTotal || 8);
-
-    inventoryCounter.innerHTML = `
-      <strong>Only ${remaining} placements remaining</strong><br>
-      Premium placements remaining: ${premiumRemaining} of ${premiumTotal}
-    `;
-  }
-});
   
 })();
 </script>
