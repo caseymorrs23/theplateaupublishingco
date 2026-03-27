@@ -13,10 +13,9 @@
     .muted{color:var(--muted)}
     .fine-print{font-size:.95rem;color:var(--muted)}
     .agreement-box{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px}
-    .sigline{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .status{margin-top:12px;font-weight:700}
     .mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    @media(max-width:860px){.sigline,.mini-grid{grid-template-columns:1fr}}
+    @media(max-width:860px){.mini-grid{grid-template-columns:1fr}}
     .invoice-preview{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px;margin-top:18px}
     .invoice-preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
     @media(max-width:860px){.invoice-preview-grid{grid-template-columns:1fr}}
@@ -89,7 +88,7 @@
         <ul class="checklist">
           <li>Pay in Full Now</li>
           <li>Half Now, Half in 30 Days</li>
-          <li>ACH/check preferred. Card adds 3.5%</li>
+          <li>Card payments only</li>
         </ul>
       </div>
       <div class="card pricing-card">
@@ -159,8 +158,7 @@
         <div class="half">
           <label for="paymentMethod">Payment method</label>
           <select id="paymentMethod" name="paymentMethod" required>
-            <option value="ACH">ACH / Check (No Fee)</option>
-            <option value="Card">Credit / Debit Card (+3.5%)</option>
+            <option value="Card">Credit / Debit Card</option>
           </select>
         </div>
         <div class="half">
@@ -174,7 +172,7 @@
             <input id="subtotal" name="subtotal" readonly>
           </div>
           <div>
-            <label for="processingFee">Processing fee</label>
+            <label for="processingFee">Card processing fee (3.5%)</label>
             <input id="processingFee" name="processingFee" readonly>
           </div>
           <div>
@@ -220,9 +218,9 @@ Colors or wording to include:"></textarea>
           <strong>Invoice Preview</strong>
           <div class="invoice-preview-grid">
             <div><span>Package</span><strong id="previewPackage">Not selected</strong></div>
-            <div><span>Payment Method</span><strong id="previewPaymentMethod">ACH / Check</strong></div>
+            <div><span>Payment Method</span><strong id="previewPaymentMethod">Credit / Debit Card</strong></div>
             <div><span>Subtotal</span><strong id="previewSubtotal">$0</strong></div>
-            <div><span>Processing Fee</span><strong id="previewFee">$0</strong></div>
+            <div><span>Card Processing Fee (3.5%)</span><strong id="previewFee">$0</strong></div>
             <div><span>Total</span><strong id="previewTotal">$0</strong></div>
             <div><span>Amount Due Now</span><strong id="previewDeposit">$0</strong></div>
             <div><span>Remaining Balance</span><strong id="previewBalance">$0</strong></div>
@@ -233,7 +231,7 @@ Colors or wording to include:"></textarea>
         <div class="full">
           <div class="agreement-box" style="padding:14px">
             <strong>Agreement Terms</strong>
-            <p class="fine-print">Advertising space is limited to 100 total placements. Space is not reserved until this agreement is signed and payment or deposit is received. All agreements, ad materials, and payment or deposit must be received by June 5, 2026. Production and distribution are scheduled to begin on or about July 1, 2026.</p>
+            <p class="fine-print">Advertising space is limited to 100 total placements. Space is not reserved until this agreement is signed and payment or deposit is received. All agreements, ad materials, and payment or deposit must be received by June 5, 2026. Production and distribution are scheduled to begin on or about July 1, 2026. Card payments include a 3.5% processing fee reflected in the totals shown.</p>
             <label style="display:flex;gap:10px;align-items:flex-start;font-weight:600">
               <input type="checkbox" name="inventoryAcknowledgment" required style="width:auto;margin-top:4px">
               <span>I understand that advertising space is limited to 100 total placements and my space is not reserved until this agreement is signed and payment or deposit is received.</span>
@@ -269,7 +267,7 @@ Colors or wording to include:"></textarea>
       <div class="cta-row">
         <button type="submit" class="cta">Reserve My Spot & Receive Invoice</button>
       </div>
-      <p class="fine-print">Most advertisers choose ACH or check to avoid the 3.5% processing fee.</p>
+      <p class="fine-print">Card payments only. The 3.5% processing fee is included in the totals shown.</p>
       <div id="formStatus" class="status" aria-live="polite"></div>
     </form>
   </div>
@@ -329,7 +327,6 @@ document.addEventListener('DOMContentLoaded', function(){
   function updatePricing() {
     const ad = document.getElementById('adSize');
     const location = document.getElementById('mapLocation');
-    const payment = document.getElementById('paymentMethod');
     const paymentPlan = document.getElementById('paymentPlan');
 
     let base = parseInt(ad?.options[ad.selectedIndex]?.dataset.price || 0, 10);
@@ -340,12 +337,9 @@ document.addEventListener('DOMContentLoaded', function(){
       packageLabel = packageLabel && packageLabel !== 'Not selected' ? packageLabel + ' + Map Location' : 'Map Location';
     }
 
-    let processing = 0;
-    if (payment && payment.value === 'Card') {
-      processing = Math.round(base * 0.035);
-    }
-
+    const processing = Math.round(base * 0.035);
     const total = base + processing;
+
     let deposit = total;
     let balance = 0;
 
@@ -373,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function(){
     };
 
     previewSet('previewPackage', packageLabel);
-    previewSet('previewPaymentMethod', payment && payment.value === 'Card' ? 'Credit / Debit Card' : 'ACH / Check');
+    previewSet('previewPaymentMethod', 'Credit / Debit Card');
     previewSet('previewSubtotal', '$' + base);
     previewSet('previewFee', '$' + processing);
     previewSet('previewTotal', '$' + total);
@@ -382,7 +376,7 @@ document.addEventListener('DOMContentLoaded', function(){
     previewSet('previewDueDate', dueDate && dueDate.value ? dueDate.value : '-');
   }
 
-  ['adSize','mapLocation','paymentMethod','paymentPlan','invoiceDate'].forEach(id => {
+  ['adSize','mapLocation','paymentPlan','invoiceDate'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.addEventListener('change', updatePricing);
   });
