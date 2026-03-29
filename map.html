@@ -75,7 +75,8 @@
   <header class="hero hero--image" style="background-image:url('/assets/hero-mtrainier-clean.png'), url('/assets/hero-mtrainier-clean.webp')">
     <div class="overlay"></div>
     <div class="container">
-      <h1>Reserve Your Spot on the 2026 Plateau Map </h1>
+      <h1>Be One of 100 Businesses Featured on the Plateau Map </h1>
+      <h1>Every business is placed directly on the map — limited to 100 total placements. </h1>
       <h1>2026 Edition runs July 2026-June 2027</h1>
       <p class="lead">Annual high-visibility print and digital map for the Plateau community. 100,000+ Maps Delivered. Complete the agreement below, then pay using the secure payment link shown after submission.</p>
       <div class="cta-row">
@@ -123,11 +124,16 @@
         <div class="card pricing-card">
           <strong>Ad options</strong>
           <ul class="checklist">
-            <li>Single square: $1,000</li>
-            <li>Single square size: 1"x1.5"</li>
-            <li>Double square: $2,000 - Premium</li>          
-            <li>Double square size: 2"x1.5"</li>
-            <li>Map add-on: +$500</li>
+            
+<strong>Placement</strong>
+<ul class="checklist">
+  <li>$1,000 annual placement (July 2026 – June 2027)</li>
+  <li>Placement on the Plateau map</li>
+  <li>Storefront businesses pinned at location</li>
+  <li>Service businesses featured in "Serving the Plateau"</li>
+  <li>Category + contact info included</li>
+</ul>
+            
           </ul>
         </div>
         <div class="card pricing-card">
@@ -191,12 +197,7 @@
           </div>
 
           <div class="half">
-            <label for="adSize">Advertising option</label>
-            <select id="adSize" name="adSize" required>
-              <option value="">Select</option>
-              <option value="Single Ad">Single square</option>
-              <option value="Double Ad">Double square</option>
-            </select>
+<input type="hidden" name="adSize" value="Map Placement">
           </div>
 
           <div class="half">
@@ -209,10 +210,7 @@
           </div>
 
           <div class="half">
-            <label style="display:flex;gap:10px;align-items:flex-start;font-weight:600;margin-top:28px">
-              <input type="checkbox" id="mapLocation" name="mapLocation" value="Yes" style="width:auto;margin-top:4px">
-              <span>Add location on map (+$500)</span>
-            </label>
+
           </div>
 
           <div class="half">
@@ -247,8 +245,12 @@ Anything else needed for the ad:"></textarea>
                   Estimated distribution of 100,000 copies. 
                   Basic ad design (if needed). 
                 
-                Advertiser is reserving advertising placement in the current annual edition of the Plateau Map (July 2026 - June 2027).
-                Advertising options are single square for $1,000, double square for $2,000, and a map add-on for an additional $500.
+Advertiser is reserving one (1) placement on the Plateau Map for the annual edition (July 2026 – June 2027).
+
+Each placement includes representation on the map, either as a physical location pin or within the "Serving the Plateau" section depending on business type.
+
+Total investment is $1,000 for the annual placement.
+                
                 Payment may be made in full or with a 50% down payment option.
                 A 3.5% card processing fee is added through the payment link.
                 Advertising space is limited to 100 total placements and is offered on a first signed, first paid basis.
@@ -360,21 +362,14 @@ Anything else needed for the ad:"></textarea>
     if (invoiceDate && !invoiceDate.value) invoiceDate.value = todayStr;
   }
 
-  function getPaymentLink() {
-    const ad = document.getElementById('adSize').value;
-    const map = document.getElementById('mapLocation').checked;
-    const plan = document.getElementById('paymentPlan').value;
+function getPaymentLink() {
+  const plan = document.getElementById('paymentPlan').value;
 
-    if (ad === "Double Ad" && !map && plan === "Full Payment") return "https://swipesimple.com/links/lnk_b20584f668c44db69a7f1dd49f7afd85";
-    if (ad === "Double Ad" && !map && plan === "50% Down") return "https://swipesimple.com/links/lnk_59c4b105652263967ddff0ab2f56b402";
-    if (ad === "Double Ad" && map && plan === "Full Payment") return "https://swipesimple.com/links/lnk_043e47cd2c6a141131db600819f62713";
-    if (ad === "Double Ad" && map && plan === "50% Down") return "https://swipesimple.com/links/lnk_cdd7ebb63533d442bed497320ab0932f";
-    if (ad === "Single Ad" && !map && plan === "Full Payment") return "https://swipesimple.com/links/lnk_d23e2bca5d5ab0d108e7954b3d468382";
-    if (ad === "Single Ad" && !map && plan === "50% Down") return "https://swipesimple.com/links/lnk_507f26cdc1254c556ebfdb19b6cffbf7";
-    if (ad === "Single Ad" && map && plan === "Full Payment") return "https://swipesimple.com/links/lnk_875e0b06e34ac8ba73811d099166fe20";
-    if (ad === "Single Ad" && map && plan === "50% Down") return "https://swipesimple.com/links/lnk_af9ed3eed333f55d4e2c279f427a1209";
-    return "";
-  }
+  if (plan === "Full Payment") return "YOUR_FULL_PAYMENT_LINK";
+  if (plan === "50% Down") return "YOUR_DEPOSIT_LINK";
+
+  return "";
+}
 
   function getSelectionLabel() {
     const ad = document.getElementById('adSize').value;
