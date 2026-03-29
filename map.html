@@ -15,6 +15,16 @@
     .checklist{margin:0;padding-left:18px;color:#6a6258}
     .pricing-card strong{display:block;font-size:1.05rem;margin-bottom:6px}
     .iframe-status{display:none}
+    .hero-subtitle{
+      font-size:1.15rem;
+      font-weight:700;
+      margin:10px 0 6px;
+    }
+    .hero-edition{
+      font-size:1rem;
+      opacity:.95;
+      margin-bottom:10px;
+    }
   </style>
 </head>
 <body>
@@ -75,10 +85,11 @@
   <header class="hero hero--image" style="background-image:url('/assets/hero-mtrainier-clean.png'), url('/assets/hero-mtrainier-clean.webp')">
     <div class="overlay"></div>
     <div class="container">
-      <h1>Be One of 100 Businesses Featured on the Plateau Map </h1>
-      <h1>Every business is placed directly on the map — limited to 100 total placements. </h1>
-      <h1>2026 Edition runs July 2026-June 2027</h1>
-      <p class="lead">Annual high-visibility print and digital map for the Plateau community. 100,000+ Maps Delivered. Complete the agreement below, then pay using the secure payment link shown after submission.</p>
+      <h1>Be One of 100 Businesses Featured on the Plateau Map</h1>
+      <p class="hero-subtitle">Every business is placed directly on the map — limited to 100 total placements.</p>
+      <p class="hero-edition">2026 Edition runs July 2026 - June 2027</p>
+      <p class="lead"><strong>$1,000 locks your placement for the full year.</strong></p>
+      <p class="lead">Annual high-visibility print and digital map for the Plateau community. 100,000+ maps delivered. Complete the agreement below, then pay using the secure payment link shown after submission.</p>
       <div class="cta-row">
         <a class="cta" href="#agreement">Complete Agreement</a>
         <a class="cta secondary" href="mailto:hello@theplateaupublishingco.com">Email Questions</a>
@@ -93,49 +104,43 @@
     </div>
   </header>
 
-<section class="section">
-  <div class="container">
-    <div class="notice">
-      <strong>Limited inventory:</strong> this edition is capped at 100 total advertising placements for the year. Space is offered on a first signed, first paid basis.
-    </div>
+  <section class="section">
+    <div class="container">
+      <div class="notice">
+        <strong>Limited inventory:</strong> this edition is capped at 100 total advertising placements for the year. Space is offered on a first signed, first paid basis.
+      </div>
 
-    <div id="inventoryCounter" style="
-      background:#f8f5f0;
-      border:1px solid #e3ddd2;
-      padding:16px;
-      border-radius:10px;
-      margin-top:10px;
-    ">
-    <strong style="font-size:18px;">Only 95 squares remaining</strong><br>
-  </div>
+      <div id="inventoryCounter" style="
+        background:#f8f5f0;
+        border:1px solid #e3ddd2;
+        padding:16px;
+        border-radius:10px;
+        margin-top:10px;
+      ">
+        <strong style="font-size:18px;">Only 95 placements remaining</strong><br>
+      </div>
 
-    <div class="notice">
-      <strong>Deadline June 5th, 2026</strong> this edition will be put to design no later than June 5th (sooner if spots are filled). Production & delivery starts July 2026 and runs through June 2027.
+      <div class="notice" style="margin-top:10px;">
+        <strong>Deadline June 5th, 2026</strong> this edition will be put to design no later than June 5th (sooner if spots are filled). Production and delivery start July 2026 and run through June 2027.
+      </div>
     </div>
-    
-    </div>
-  </div>
-</section>
+  </section>
 
   <section class="section" style="padding-top:0">
     <div class="container">
       <div class="grid cols-3" style="margin-bottom:18px">
         <div class="card pricing-card">
-          <strong>Ad options</strong>
+          <strong>Placement</strong>
           <ul class="checklist">
-            
-<strong>Placement</strong>
-<ul class="checklist">
-  <li>$1,000 annual placement 
-  <li>July 2026 – June 2027</li>
-  <li>Placement on the Plateau map</li>
-  <li>Storefront businesses pinned at location</li>
-  <li>Service businesses featured in "Serving the Plateau"</li>
-  <li>Category + contact info included</li>
-</ul>
-            
+            <li>$1,000 annual placement</li>
+            <li>July 2026 - June 2027</li>
+            <li>Placement on the Plateau map</li>
+            <li>Storefront businesses pinned at location</li>
+            <li>Service businesses featured in "Serving the Plateau"</li>
+            <li>Category + contact info included</li>
           </ul>
         </div>
+
         <div class="card pricing-card">
           <strong>Payment options</strong>
           <ul class="checklist">
@@ -144,6 +149,7 @@
             <li>3.5% card fee added through payment link</li>
           </ul>
         </div>
+
         <div class="card pricing-card">
           <strong>Timeline</strong>
           <ul class="checklist">
@@ -151,7 +157,7 @@
             <li>If the map sells out early, production may begin early</li>
             <li>Please provide ad materials and information promptly</li>
             <li>Maps will be distributed July 2026 - June 2027</li>
-            <li>100,000+ Maps distributed</li>
+            <li>100,000+ maps distributed</li>
           </ul>
         </div>
       </div>
@@ -197,7 +203,7 @@
           </div>
 
           <div class="half">
-<input type="hidden" name="adSize" value="Map Placement">
+            <input type="hidden" id="adSize" name="adSize" value="Map Placement">
           </div>
 
           <div class="half">
@@ -207,10 +213,6 @@
               <option value="Full Payment">Pay in full</option>
               <option value="50% Down">50% down</option>
             </select>
-          </div>
-
-          <div class="half">
-
           </div>
 
           <div class="half">
@@ -241,16 +243,16 @@ Anything else needed for the ad:"></textarea>
               <strong>Terms and Conditions</strong>
               <p class="field-hint">
                 Includes:
-                  One (1) year placement on printed map. 
-                  Estimated distribution of 100,000 copies. 
-                  Basic ad design (if needed). 
-                
-Advertiser is reserving one (1) placement on the Plateau Map for the annual edition (July 2026 – June 2027).
+                One (1) year placement on printed map.
+                Estimated distribution of 100,000 copies.
+                Basic ad design (if needed).
 
-Each placement includes representation on the map, either as a physical location pin or within the "Serving the Plateau" section depending on business type.
+                Advertiser is reserving one (1) placement on the Plateau Map for the annual edition (July 2026 - June 2027).
 
-Total investment is $1,000 for the annual placement.
-                
+                Each placement includes representation on the map, either as a physical location pin or within the "Serving the Plateau" section depending on business type.
+
+                Total investment is $1,000 for the annual placement.
+
                 Payment may be made in full or with a 50% down payment option.
                 A 3.5% card processing fee is added through the payment link.
                 Advertising space is limited to 100 total placements and is offered on a first signed, first paid basis.
@@ -259,7 +261,7 @@ Total investment is $1,000 for the annual placement.
                 All signed agreements, ad materials, and payment must be received by June 5, 2026, unless the map sells out sooner, in which case production may begin earlier.
                 Advertiser understands it is important to provide materials, logos, wording, and business information promptly so the ad can be prepared on time.
                 Production and distribution are scheduled to begin on or about July 1, 2026, but may begin earlier if the edition sells out sooner.
-                This agreement does not guarantee leads, calls, sales, or any specific advertising result. No refunds once the deadline has passed as production has already occured.
+                This agreement does not guarantee leads, calls, sales, or any specific advertising result. No refunds once the deadline has passed as production has already occurred.
               </p>
 
               <label style="display:flex;gap:10px;align-items:flex-start;font-weight:600">
@@ -310,7 +312,6 @@ Total investment is $1,000 for the annual placement.
       </form>
 
       <iframe name="submissionFrame" id="submissionFrame" class="iframe-status"></iframe>
-      
     </div>
   </section>
 
@@ -333,108 +334,92 @@ Total investment is $1,000 for the annual placement.
     </div>
   </footer>
 
-<script>
-(function(){
-  const form = document.getElementById('mapAgreementForm');
-  const status = document.getElementById('formStatus');
-  const paymentBox = document.getElementById('paymentBox');
-  const sigDate = document.getElementById('signatureDate');
-  const invoiceDate = document.getElementById('invoiceDate');
-  const frame = document.getElementById('submissionFrame');
-  const inventoryCounter = document.getElementById('inventoryCounter');
+  <script>
+  (function(){
+    const form = document.getElementById('mapAgreementForm');
+    const status = document.getElementById('formStatus');
+    const paymentBox = document.getElementById('paymentBox');
+    const sigDate = document.getElementById('signatureDate');
+    const invoiceDate = document.getElementById('invoiceDate');
+    const frame = document.getElementById('submissionFrame');
 
-  let submitting = false;
+    let submitting = false;
 
-  const TOTAL_UNITS = 100;
-
-
-
-  function fmtDate(d){
-    const y = d.getFullYear();
-    const m = String(d.getMonth() + 1).padStart(2, '0');
-    const day = String(d.getDate()).padStart(2, '0');
-    return `${y}-${m}-${day}`;
-  }
-
-  function setDefaultDates() {
-    const todayStr = fmtDate(new Date());
-    if (sigDate && !sigDate.value) sigDate.value = todayStr;
-    if (invoiceDate && !invoiceDate.value) invoiceDate.value = todayStr;
-  }
-
-function getPaymentLink() {
-  const plan = document.getElementById('paymentPlan').value;
-
-  if (plan === "Full Payment") return "YOUR_FULL_PAYMENT_LINK";
-  if (plan === "50% Down") return "YOUR_DEPOSIT_LINK";
-
-  return "";
-}
-
-  function getSelectionLabel() {
-    const ad = document.getElementById('adSize').value;
-    const map = document.getElementById('mapLocation').checked;
-    const plan = document.getElementById('paymentPlan').value;
-    if (!ad || !plan) return "";
-    const base = map ? `${ad} + Map Add-On` : ad;
-    return `${base} - ${plan}`;
-  }
-
-  function resetFormForNextEntry() {
-    form.reset();
-    setDefaultDates();
-  }
-
-function loadInventoryCounter() {
-  if (!inventoryCounter) return;
-
-  inventoryCounter.textContent = "Loading current availability...";
-
-  const frame = document.getElementById("inventoryFrame");
-  frame.src = COUNTER_URL + "&t=" + Date.now();
-}
-
-  setDefaultDates();
-  
-
-  form.addEventListener('submit', function(){
-    const link = getPaymentLink();
-    const pkg = getSelectionLabel();
-
-    document.getElementById('paymentLink').value = link;
-    document.getElementById('packageDetails').value = pkg;
-
-    status.textContent = 'Submitting agreement...';
-    paymentBox.style.display = 'none';
-    paymentBox.innerHTML = '';
-    submitting = true;
-  });
-
-  frame.addEventListener('load', function(){
-    if (!submitting) return;
-
-    submitting = false;
-
-    const link = document.getElementById('paymentLink').value;
-    const pkg = document.getElementById('packageDetails').value;
-
-    status.textContent = 'Agreement submitted and recorded.';
-
-    if (link) {
-      paymentBox.style.display = 'block';
-      paymentBox.innerHTML = `
-        <strong>Next step: complete payment</strong>
-        <p class="field-hint">Your selected option is <strong>${pkg}</strong>. Click below to complete payment and secure your placement.</p>
-        <a href="${link}" target="_blank" rel="noopener" class="cta">Click here to complete payment</a>
-      `;
+    function fmtDate(d){
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${y}-${m}-${day}`;
     }
 
-    // refresh counter after a submission
-    
+    function setDefaultDates() {
+      const todayStr = fmtDate(new Date());
+      if (sigDate && !sigDate.value) sigDate.value = todayStr;
+      if (invoiceDate && !invoiceDate.value) invoiceDate.value = todayStr;
+    }
 
-    resetFormForNextEntry();
-  });
+    function getPaymentLink() {
+      const plan = document.getElementById('paymentPlan').value;
 
-  
-})();
-</script>
+      if (plan === "Full Payment") {
+        return "https://swipesimple.com/links/lnk_d23e2bca5d5ab0d108e7954b3d468382";
+      }
+
+      if (plan === "50% Down") {
+        return "https://swipesimple.com/links/lnk_507f26cdc1254c556ebfdb19b6cffbf7";
+      }
+
+      return "";
+    }
+
+    function getSelectionLabel() {
+      const plan = document.getElementById('paymentPlan').value;
+      if (!plan) return "";
+      return `Map Placement - ${plan}`;
+    }
+
+    function resetFormForNextEntry() {
+      form.reset();
+      setDefaultDates();
+    }
+
+    setDefaultDates();
+
+    form.addEventListener('submit', function(){
+      const link = getPaymentLink();
+      const pkg = getSelectionLabel();
+
+      document.getElementById('paymentLink').value = link;
+      document.getElementById('packageDetails').value = pkg;
+
+      status.textContent = 'Submitting agreement...';
+      paymentBox.style.display = 'none';
+      paymentBox.innerHTML = '';
+      submitting = true;
+    });
+
+    frame.addEventListener('load', function(){
+      if (!submitting) return;
+
+      submitting = false;
+
+      const link = document.getElementById('paymentLink').value;
+      const pkg = document.getElementById('packageDetails').value;
+
+      status.textContent = 'Agreement submitted and recorded.';
+
+      if (link) {
+        paymentBox.style.display = 'block';
+        paymentBox.innerHTML = `
+          <strong>Next step: complete payment</strong>
+          <p class="field-hint">Your selected option is <strong>${pkg}</strong>. Click below to complete payment and secure your placement.</p>
+          <a href="${link}" target="_blank" rel="noopener" class="cta">Click here to complete payment</a>
+        `;
+      }
+
+      resetFormForNextEntry();
+    });
+  })();
+  </script>
+</body>
+</html>
