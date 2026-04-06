@@ -140,7 +140,7 @@ footer a{color:#eee;text-decoration:underline}
   gap:.6rem 1rem;
   align-items:center;
   justify-content:center;
-  width:100%;
+  width:auto;
 }
 
 @media (max-width: 860px){
