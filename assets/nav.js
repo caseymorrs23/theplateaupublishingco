@@ -11,6 +11,12 @@
       linksWrap.appendChild(siteNav.firstChild);
     }
 
+    const brand = document.createElement('a');
+    brand.href = '/';
+    brand.className = 'nav-brand';
+    brand.setAttribute('aria-label', 'The Plateau Publishing Co. home');
+    brand.innerHTML = '<img src="/assets/PlateauPublishingCoLogoBlack.png" alt="The Plateau Publishing Co." />';
+
     const toggle = document.createElement('button');
     toggle.type = 'button';
     toggle.className = 'nav-toggle';
@@ -20,6 +26,7 @@
     toggle.innerHTML = '<span></span><span></span><span></span>';
 
     linksWrap.id = 'site-nav-links';
+    siteNav.appendChild(brand);
     siteNav.appendChild(toggle);
     siteNav.appendChild(linksWrap);
 
